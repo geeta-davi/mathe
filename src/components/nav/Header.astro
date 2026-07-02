@@ -1,0 +1,89 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations, pathWithoutLocale } from "../../i18n/utils";
+import Logo from "../ui/Logo.astro";
+import Button from "../ui/Button.astro";
+import LangSwitcher from "./LangSwitcher.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const here = pathWithoutLocale(Astro.url);
+
+const links = [
+  { key: "nav.features", path: "features" },
+  { key: "nav.how", path: "how-it-works" },
+  { key: "nav.support", path: "support" },
+  { key: "nav.about", path: "about" },
+] as const;
+
+const isActive = (p: string) => here === p;
+---
+
+<header class="sticky top-0 z-40 border-b border-ink/5 bg-paper/85 backdrop-blur-md">
+  <div class="shell flex h-16 items-center justify-between gap-4">
+    <Logo href={getRelativeLocaleUrl(lang, "")} size={36} />
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-1" aria-label="Primary">
+      {
+        links.map((l) => (
+          <a
+            href={getRelativeLocaleUrl(lang, l.path)}
+            aria-current={isActive(l.path) ? "page" : undefined}
+            class:list={[
+              "rounded-full px-3.5 py-2 text-[15px] font-semibold transition-colors",
+              isActive(l.path) ? "text-brand" : "text-ink/75 hover:text-ink hover:bg-ink/5",
+            ]}
+          >
+            {t(l.key)}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-1.5">
+      <LangSwitcher />
+      <div class="hidden sm:block">
+        <Button href={getRelativeLocaleUrl(lang, "download")} variant="primary">{t("nav.download")}</Button>
+      </div>
+
+      <!-- Mobile menu -->
+      <details class="mnav md:hidden">
+        <summary
+          class="grid h-10 w-10 place-items-center cursor-pointer list-none rounded-full text-ink hover:bg-ink/5"
+          aria-label={t("menu.open")}
+        >
+          <svg class="open-i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          <svg class="close-i hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </summary>
+        <div class="fixed inset-x-0 top-16 border-b border-ink/5 bg-paper/98 backdrop-blur-md shadow-[0_16px_40px_rgba(40,20,10,.12)]">
+          <nav class="shell flex flex-col gap-1 py-4" aria-label="Mobile">
+            {
+              links.map((l) => (
+                <a
+                  href={getRelativeLocaleUrl(lang, l.path)}
+                  aria-current={isActive(l.path) ? "page" : undefined}
+                  class:list={[
+                    "rounded-xl px-3 py-3 text-base font-semibold",
+                    isActive(l.path) ? "text-brand bg-blush/50" : "text-ink/80 hover:bg-ink/5",
+                  ]}
+                >
+                  {t(l.key)}
+                </a>
+              ))
+            }
+            <div class="pt-2">
+              <Button href={getRelativeLocaleUrl(lang, "download")} variant="primary" class="w-full">{t("nav.download")}</Button>
+            </div>
+          </nav>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .mnav > summary::-webkit-details-marker { display: none; }
+  .mnav[open] .open-i { display: none; }
+  .mnav[open] .close-i { display: block; }
+</style>

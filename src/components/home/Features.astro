@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+interface Props {
+  heading?: boolean;
+}
+const { heading = true } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = [
+  { title: "feat.learn.title", desc: "feat.learn.desc", color: "#F43F5E", paths: ["M12 7v13", "M3 6a9 9 0 0 1 9 1 9 9 0 0 1 9-1v13a9 9 0 0 0-9 1 9 9 0 0 0-9-1z"] },
+  { title: "feat.duel.title", desc: "feat.duel.desc", color: "#5B3DF5", paths: ["M13 2 4 14h7l-1 8 9-12h-7z"] },
+  { title: "feat.leagues.title", desc: "feat.leagues.desc", color: "#F59E0B", paths: ["M8 21h8M12 17v4", "M7 4h10v4a5 5 0 0 1-10 0z", "M7 5H4v1a4 4 0 0 0 3 4M17 5h3v1a4 4 0 0 1-3 4"] },
+  { title: "feat.streaks.title", desc: "feat.streaks.desc", color: "#F43F5E", paths: ["M12 3s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4 0 1.5 1 2 1.5 2 1.5 0 .5-4 1.5-7z"] },
+  { title: "feat.mastery.title", desc: "feat.mastery.desc", color: "#22D3EE", paths: ["M4 20V11M10 20V5M16 20v-6M2 20h18"] },
+  { title: "feat.fair.title", desc: "feat.fair.desc", color: "#241712", paths: ["M12 3v18M6 21h12", "M5 7h14", "M5 7 2 13a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"] },
+] as const;
+---
+
+<section class="shell py-20 md:py-28">
+  {
+    heading && (
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="font-display text-4xl font-extrabold text-ink sm:text-5xl">{t("features.title")}</h2>
+        <p class="mt-4 text-lg text-muted">{t("features.subtitle")}</p>
+      </div>
+    )
+  }
+
+  <div class:list={["grid gap-5 sm:grid-cols-2 lg:grid-cols-3", heading ? "mt-14" : ""]}>
+    {
+      features.map((f) => (
+        <article class="group rounded-3xl bg-white p-7 ring-1 ring-ink/5 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_20px_44px_rgba(40,20,10,.1)]">
+          <span
+            class="grid h-12 w-12 place-items-center rounded-2xl"
+            style={`background:${f.color}1a;color:${f.color};`}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              {f.paths.map((d) => <path d={d} />)}
+            </svg>
+          </span>
+          <h3 class="mt-5 font-display text-xl font-bold text-ink">{t(f.title)}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-muted">{t(f.desc)}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

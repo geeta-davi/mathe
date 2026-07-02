@@ -1,0 +1,27 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { STATS } from "../../consts";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = [
+  { value: STATS.players, label: "stats.players" },
+  { value: STATS.duels, label: "stats.duels" },
+  { value: STATS.tricks, label: "stats.tricks" },
+  { value: STATS.countries, label: "stats.countries" },
+] as const;
+---
+
+<section class="shell -mt-6 md:-mt-10">
+  <div class="grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-ink/8 shadow-[0_16px_40px_rgba(40,20,10,.08)] md:grid-cols-4">
+    {
+      items.map((it) => (
+        <div class="bg-white px-4 py-6 text-center">
+          <div class="font-num text-3xl font-bold text-brand sm:text-4xl">{it.value}</div>
+          <div class="mt-1 text-xs font-semibold uppercase tracking-wide text-muted-2">{t(it.label)}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>

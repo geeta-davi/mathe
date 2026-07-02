@@ -1,0 +1,32 @@
+---
+/**
+ * Button / link. Variants: primary (gradient), dark (ink), ghost (outline).
+ */
+interface Props {
+  href?: string;
+  variant?: "primary" | "dark" | "ghost";
+  size?: "md" | "lg";
+  class?: string;
+  type?: "button" | "submit";
+}
+const { href, variant = "primary", size = "md", class: cls = "", type } = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center gap-2 font-display font-bold rounded-full transition-transform duration-150 will-change-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-offset-2";
+const sizes = { md: "text-[15px] px-5 py-2.5", lg: "text-[17px] px-7 py-3.5" };
+const variants = {
+  primary: "text-white shadow-[0_8px_20px_rgba(244,63,94,.32)]",
+  dark: "bg-ink text-cream hover:bg-[#33231b]",
+  ghost: "bg-transparent text-ink ring-2 ring-ink/15 hover:ring-ink/30",
+};
+const style = variant === "primary" ? "background:var(--gradient-brand);" : "";
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  {...href ? { href } : { type: type ?? "button" }}
+  class={`${base} ${sizes[size]} ${variants[variant]} ${cls}`}
+  style={style}
+>
+  <slot />
+</Tag>

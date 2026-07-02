@@ -1,0 +1,74 @@
+---
+import { getCollection, render } from "astro:content";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+import { languages, type Lang } from "../../i18n/ui";
+import type { PageKey } from "../../i18n/meta";
+
+type Doc = "privacy" | "terms" | "cookies" | "about";
+
+export function getStaticPaths() {
+  const docs: Doc[] = ["privacy", "terms", "cookies", "about"];
+  return languages.flatMap((locale) =>
+    docs.map((doc) => ({ params: { locale, doc }, props: { doc } })),
+  );
+}
+
+const { doc } = Astro.props as { doc: Doc };
+const lang = getLangFromUrl(Astro.url);
+
+// Prefer the locale's document; fall back to English if not yet translated.
+// Using getCollection (not getEntry) avoids "entry not found" build logs.
+const all = await getCollection("pages");
+const byId = new Map(all.map((e) => [e.id, e]));
+const localized = byId.get(`${lang}/${doc}`);
+const isFallback = !localized;
+const entry = localized ?? byId.get(`en/${doc}`)!;
+const { Content } = await render(entry);
+
+const home = getAbsoluteLocaleUrl(lang, "");
+const self = getAbsoluteLocaleUrl(lang, doc);
+const breadcrumbs = [
+  { name: "mathe", item: home },
+  { name: entry.data.title, item: self },
+];
+
+const updatedLabel: Record<Lang, string> = {
+  en: "Last updated",
+  es: "Última actualización",
+  fr: "Dernière mise à jour",
+  de: "Zuletzt aktualisiert",
+};
+const fallbackNotice: Record<Lang, string> = {
+  en: "This page isn't available in your language yet — showing the English version.",
+  es: "Esta página aún no está disponible en tu idioma; se muestra la versión en inglés.",
+  fr: "Cette page n'est pas encore disponible dans ta langue — voici la version anglaise.",
+  de: "Diese Seite ist noch nicht in deiner Sprache verfügbar — es wird die englische Version angezeigt.",
+};
+
+const updated = entry.data.updated
+  ? new Intl.DateTimeFormat(lang, { dateStyle: "long" }).format(new Date(entry.data.updated))
+  : null;
+---
+
+<BaseLayout pageKey={doc as PageKey} path={doc} breadcrumbs={breadcrumbs}>
+  <section class="shell py-14 md:py-20">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="font-display text-4xl font-extrabold text-ink sm:text-5xl">{entry.data.title}</h1>
+      {updated && <p class="mt-3 text-sm text-muted-2">{updatedLabel[lang]}: {updated}</p>}
+
+      {
+        isFallback && (
+          <p class="mt-6 rounded-2xl bg-blush/60 px-4 py-3 text-sm text-ink/80 ring-1 ring-brand/10">
+            {fallbackNotice[lang]}
+          </p>
+        )
+      }
+
+      <div class="prose mt-8">
+        <Content />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import OperatorField from "../ui/OperatorField.astro";
+import StoreBadges from "../ui/StoreBadges.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="shell py-8 md:py-16">
+  <div class="relative overflow-hidden rounded-[36px] px-6 py-14 text-center md:px-12 md:py-20" style="background:var(--gradient-hero);">
+    <OperatorField tone="onBrand" />
+    <div class="relative mx-auto max-w-2xl">
+      <h2 class="font-display text-4xl font-extrabold text-white sm:text-5xl">{t("ctaBanner.title")}</h2>
+      <p class="mx-auto mt-4 max-w-lg text-lg text-white/90">{t("ctaBanner.subtitle")}</p>
+      <div class="mt-8 flex justify-center">
+        <StoreBadges size="lg" iosLabel={t("cta.appStore")} androidLabel={t("cta.googlePlay")} />
+      </div>
+    </div>
+  </div>
+</section>

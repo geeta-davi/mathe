@@ -1,0 +1,4 @@
+# Root -> default locale. 302 (temporary) so no single language is treated
+# as canonical for "/". Astro also emits a client-side redirect at / for
+# dev/preview and hosts that serve static index.html before _redirects.
+/    /en/    302

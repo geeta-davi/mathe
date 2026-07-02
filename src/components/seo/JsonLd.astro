@@ -1,0 +1,64 @@
+---
+/**
+ * JSON-LD structured data. astro-seo doesn't emit this, so it's hand-rolled.
+ * Renders an @graph with the pieces requested per page:
+ *  - Organization (home)
+ *  - SoftwareApplication (home / download)
+ *  - BreadcrumbList (deeper pages)
+ */
+import { SITE_URL, SITE_NAME, COMPANY, SOCIAL, STORE_LINKS } from "../../consts";
+
+interface Crumb {
+  name: string;
+  item: string;
+}
+interface Props {
+  organization?: boolean;
+  softwareApp?: boolean;
+  breadcrumbs?: Crumb[];
+}
+const { organization = false, softwareApp = false, breadcrumbs } = Astro.props;
+
+const graph: Record<string, unknown>[] = [];
+
+if (organization) {
+  graph.push({
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    legalName: COMPANY,
+    url: SITE_URL,
+    logo: `${SITE_URL}/favicon.svg`,
+    sameAs: [SOCIAL.x, SOCIAL.instagram, SOCIAL.youtube],
+  });
+}
+
+if (softwareApp) {
+  graph.push({
+    "@type": "SoftwareApplication",
+    "@id": `${SITE_URL}/#app`,
+    name: SITE_NAME,
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "iOS, Android",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    downloadUrl: [STORE_LINKS.ios, STORE_LINKS.android],
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  });
+}
+
+if (breadcrumbs && breadcrumbs.length) {
+  graph.push({
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: c.item,
+    })),
+  });
+}
+
+const data = { "@context": "https://schema.org", "@graph": graph };
+---
+
+{graph.length > 0 && <script is:inline type="application/ld+json" set:html={JSON.stringify(data)} />}

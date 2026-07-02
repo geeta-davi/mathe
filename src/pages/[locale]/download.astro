@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { localeStaticPaths, getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import PageHeader from "../../components/ui/PageHeader.astro";
+import StoreBadges from "../../components/ui/StoreBadges.astro";
+import PhoneMock from "../../components/mock/PhoneMock.astro";
+import DuelScreen from "../../components/mock/DuelScreen.astro";
+
+export const getStaticPaths = () => localeStaticPaths();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const breadcrumbs = [
+  { name: "mathe", item: getAbsoluteLocaleUrl(lang, "") },
+  { name: t("nav.download"), item: getAbsoluteLocaleUrl(lang, "download") },
+];
+// decorative QR-ish grid
+const cells = Array.from({ length: 49 }, (_, i) => (i * 7 + 3) % 5 === 0 || i % 3 === 0);
+---
+
+<BaseLayout pageKey="download" path="download" softwareApp breadcrumbs={breadcrumbs}>
+  <PageHeader title={t("download.title")} subtitle={t("download.subtitle")} eyebrow={t("cta.getApp")} />
+
+  <section class="shell py-16 md:py-24">
+    <div class="grid items-center gap-14 md:grid-cols-2">
+      <div class="flex flex-col items-center gap-8 md:items-start">
+        <StoreBadges size="lg" iosLabel={t("cta.appStore")} androidLabel={t("cta.googlePlay")} />
+
+        <div class="flex items-center gap-5 rounded-3xl bg-white p-5 ring-1 ring-ink/5">
+          <div class="grid grid-cols-7 gap-0.5 rounded-xl bg-white p-2 ring-1 ring-ink/10" aria-hidden="true">
+            {cells.map((on) => <span class:list={["h-3 w-3 rounded-[2px]", on ? "bg-ink" : "bg-transparent"]} />)}
+          </div>
+          <div>
+            <p class="font-display font-bold text-ink">{t("download.qr")}</p>
+            <p class="mt-1 text-sm text-muted">iOS · Android · mathe.games</p>
+          </div>
+        </div>
+
+        <ul class="space-y-2.5 text-[15px] text-muted">
+          {
+            [t("hero.badge"), t("hero.note")].map((line) => (
+              <li class="flex items-center gap-2.5">
+                <span class="grid h-5 w-5 place-items-center rounded-full bg-brand/10 text-brand">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 13 4 4L19 7" /></svg>
+                </span>
+                {line}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="relative">
+        <div class="pointer-events-none absolute inset-0 -z-10 mx-auto max-w-[340px] rounded-full opacity-30 blur-3xl" style="background:radial-gradient(circle,#FB7185,transparent 70%);"></div>
+        <PhoneMock float><DuelScreen /></PhoneMock>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

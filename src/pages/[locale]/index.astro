@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { localeStaticPaths } from "../../i18n/utils";
+import Hero from "../../components/home/Hero.astro";
+import Stats from "../../components/home/Stats.astro";
+import Features from "../../components/home/Features.astro";
+import HowItWorks from "../../components/home/HowItWorks.astro";
+import TrickShowcase from "../../components/home/TrickShowcase.astro";
+import Leagues from "../../components/home/Leagues.astro";
+import CtaBanner from "../../components/home/CtaBanner.astro";
+
+export const getStaticPaths = () => localeStaticPaths();
+---
+
+<BaseLayout pageKey="home" path="" organization softwareApp>
+  <Hero />
+  <Stats />
+  <Features />
+  <HowItWorks />
+  <TrickShowcase />
+  <Leagues />
+  <CtaBanner />
+</BaseLayout>

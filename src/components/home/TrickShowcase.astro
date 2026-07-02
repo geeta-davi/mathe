@@ -1,0 +1,48 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import PhoneMock from "../mock/PhoneMock.astro";
+import LearnScreen from "../mock/LearnScreen.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const tricks = [
+  { name: "trick.mul11", ex: "trick.mul11.ex", c: "#F43F5E" },
+  { name: "trick.squares", ex: "trick.squares.ex", c: "#F59E0B" },
+  { name: "trick.percent", ex: "trick.percent.ex", c: "#22D3EE" },
+  { name: "trick.profit", ex: "trick.profit.ex", c: "#5B3DF5" },
+  { name: "trick.cube", ex: "trick.cube.ex", c: "#F43F5E" },
+  { name: "trick.divis", ex: "trick.divis.ex", c: "#F59E0B" },
+] as const;
+---
+
+<section class="shell py-20 md:py-28">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="font-display text-4xl font-extrabold text-ink sm:text-5xl">{t("tricks.title")}</h2>
+    <p class="mt-4 text-lg text-muted">{t("tricks.subtitle")}</p>
+  </div>
+
+  <div class="mt-14 grid items-center gap-12 lg:grid-cols-2">
+    <div class="order-2 lg:order-1">
+      <PhoneMock>
+        <LearnScreen />
+      </PhoneMock>
+    </div>
+
+    <ul class="order-1 grid gap-3 sm:grid-cols-2 lg:order-2">
+      {
+        tricks.map((tr) => (
+          <li class="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-ink/5">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl font-num text-lg font-bold text-white" style={`background:${tr.c};`}>
+              ×
+            </span>
+            <span class="min-w-0">
+              <span class="block truncate font-display text-[15px] font-bold text-ink">{t(tr.name)}</span>
+              <span class="block font-num text-sm text-muted">{t(tr.ex)}</span>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

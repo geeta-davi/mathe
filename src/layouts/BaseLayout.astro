@@ -1,0 +1,80 @@
+---
+import "../styles/global.css";
+import Seo from "../components/seo/Seo.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import Header from "../components/nav/Header.astro";
+import Footer from "../components/nav/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { pageMeta, type PageKey } from "../i18n/meta";
+import { SITE_NAME } from "../consts";
+
+interface Crumb {
+  name: string;
+  item: string;
+}
+interface Props {
+  pageKey?: PageKey;
+  title?: string;
+  description?: string;
+  path?: string;
+  image?: string;
+  organization?: boolean;
+  softwareApp?: boolean;
+  breadcrumbs?: Crumb[];
+  bodyClass?: string;
+  noindex?: boolean;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const {
+  pageKey,
+  path = "",
+  image,
+  organization = false,
+  softwareApp = false,
+  breadcrumbs,
+  bodyClass = "",
+  noindex = false,
+} = Astro.props;
+
+const meta = pageKey ? pageMeta[pageKey][lang] : undefined;
+const rawTitle = Astro.props.title ?? meta?.title ?? SITE_NAME;
+const description = Astro.props.description ?? meta?.description ?? "";
+// Home page title is already complete; others get the site suffix.
+const title = pageKey === "home" ? rawTitle : `${rawTitle} · ${SITE_NAME}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#F43F5E" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&family=DM+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <Seo title={title} description={description} lang={lang} path={path} image={image} noindex={noindex} />
+    <JsonLd organization={organization} softwareApp={softwareApp} breadcrumbs={breadcrumbs} />
+  </head>
+  <body class={bodyClass}>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-cream"
+    >
+      {t("skip.content")}
+    </a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

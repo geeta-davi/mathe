@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { localeStaticPaths, getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import PageHeader from "../../components/ui/PageHeader.astro";
+import HowItWorks from "../../components/home/HowItWorks.astro";
+import TrickShowcase from "../../components/home/TrickShowcase.astro";
+import CtaBanner from "../../components/home/CtaBanner.astro";
+
+export const getStaticPaths = () => localeStaticPaths();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const breadcrumbs = [
+  { name: "mathe", item: getAbsoluteLocaleUrl(lang, "") },
+  { name: t("nav.how"), item: getAbsoluteLocaleUrl(lang, "how-it-works") },
+];
+---
+
+<BaseLayout pageKey="how" path="how-it-works" breadcrumbs={breadcrumbs}>
+  <PageHeader title={t("how.title")} subtitle={t("how.subtitle")} eyebrow={t("nav.how")} />
+  <div class="py-6 md:py-10">
+    <HowItWorks heading={false} />
+  </div>
+  <TrickShowcase />
+  <CtaBanner />
+</BaseLayout>

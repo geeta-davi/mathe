@@ -1,0 +1,72 @@
+---
+/**
+ * Central SEO head. Emits per-locale self-canonical, full hreflang set
+ * (+ x-default), Open Graph and Twitter tags via astro-seo.
+ * `path` is the locale-less path, e.g. "features" or "" for the home page.
+ */
+import { SEO } from "astro-seo";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { languages, defaultLang, type Lang } from "../../i18n/ui";
+import { SITE_NAME } from "../../consts";
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  path?: string;
+  image?: string;
+  type?: string;
+  noindex?: boolean;
+}
+const {
+  title,
+  description,
+  lang,
+  path = "",
+  image = "/og/default.svg",
+  type = "website",
+  noindex = false,
+} = Astro.props;
+
+const canonical = getAbsoluteLocaleUrl(lang, path);
+const imageAbs = new URL(image, Astro.site).href;
+
+const ogLocale: Record<Lang, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+};
+
+// Reciprocal hreflang alternates for every locale + x-default.
+const languageAlternates = [
+  ...languages.map((l) => ({ hrefLang: l, href: getAbsoluteLocaleUrl(l, path) })),
+  { hrefLang: "x-default", href: getAbsoluteLocaleUrl(defaultLang, path) },
+];
+---
+
+<SEO
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
+  nofollow={noindex}
+  languageAlternates={languageAlternates}
+  openGraph={{
+    basic: { title, type, image: imageAbs, url: canonical },
+    optional: {
+      description,
+      siteName: SITE_NAME,
+      locale: ogLocale[lang],
+      localeAlternate: languages.filter((l) => l !== lang).map((l) => ogLocale[l]),
+    },
+    image: { alt: `${SITE_NAME} — ${description}`, width: 1200, height: 630 },
+  }}
+  twitter={{
+    card: "summary_large_image",
+    title,
+    description,
+    image: imageAbs,
+    imageAlt: SITE_NAME,
+  }}
+/>

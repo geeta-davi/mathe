@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ============================================================
+   mathe design tokens — derived from the "Mathe Branding" kit.
+   Namespaced (brand/accent/aqua/duel/ink/…) to avoid clashing
+   with Tailwind's default color scales.
+   ============================================================ */
+@theme {
+  /* Brand + accent colors */
+  --color-brand: #f43f5e;
+  --color-brand-2: #fb7185;
+  --color-accent: #f59e0b;
+  --color-aqua: #22d3ee;
+  --color-duel: #5b3df5;
+
+  --color-ink: #241712;
+  --color-cream: #fff6ec;
+  --color-paper: #e7e5df;
+  --color-blush: #ffe4e9;
+
+  --color-muted: #7a6a60;
+  --color-muted-2: #9a8a7e;
+  --color-muted-3: #6b5d54;
+
+  /* Type families (loaded via <link> in BaseLayout head) */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Baloo 2", var(--font-sans);
+  --font-num: "Space Grotesk", var(--font-sans);
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Signature gradient (logo + CTAs) */
+  --gradient-brand: linear-gradient(145deg, #f43f5e, #fb7185);
+  --gradient-hero: linear-gradient(160deg, #f43f5e, #fb7185 60%, #f59e0b);
+
+  /* Motion */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-ring: pulseRing 2.4s ease-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ============================================================
+   Base — inside @layer base so Tailwind text-* utilities (utilities
+   layer) always win. Without the layer these element rules would be
+   unlayered and override utilities like text-cream on dark sections.
+   ============================================================ */
+:root {
+  --page-max: 1200px;
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body { margin: 0; min-height: 100dvh; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Respect reduced-motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility: centered content shell */
+.shell {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (min-width: 768px) {
+  .shell { padding-inline: 40px; }
+}
+
+/* Prose (legal / about MDX) */
+.prose { max-width: 72ch; }
+.prose h2 { font-size: 1.6rem; margin-top: 2.2em; margin-bottom: 0.6em; }
+.prose h3 { font-size: 1.2rem; margin-top: 1.6em; margin-bottom: 0.4em; }
+.prose p, .prose li { font-size: 1.02rem; line-height: 1.7; color: #3a2b23; }
+.prose ul { padding-left: 1.2em; list-style: disc; }
+.prose ol { padding-left: 1.2em; list-style: decimal; }
+.prose li { margin-block: 0.3em; }
+.prose a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 3px; }
+.prose strong { color: var(--color-ink); }
+.prose hr { border: none; border-top: 1px solid #d8d2c8; margin-block: 2em; }

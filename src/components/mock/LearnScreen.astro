@@ -1,0 +1,53 @@
+---
+/** Illustrative in-app "learn a trick" screen (decorative; aria-hidden). */
+const steps = [
+  "Write the outer digits: 3 _ 2",
+  "Add them for the middle: 3 + 2 = 5",
+  "Drop it in: 3 5 2",
+];
+---
+
+<div class="flex h-full w-full flex-col bg-cream p-4 font-sans">
+  <div class="flex items-center gap-2">
+    <span class="grid h-8 w-8 place-items-center rounded-full bg-ink/5 text-ink">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+    </span>
+    <span class="text-[10px] font-bold uppercase tracking-wider text-muted-2">The trick · ×11</span>
+  </div>
+
+  <h3 class="mt-3 font-display text-2xl font-extrabold text-ink">Multiply by 11</h3>
+
+  <!-- method -->
+  <div class="mt-4 rounded-3xl bg-white p-5 shadow-[0_10px_24px_rgba(40,20,10,.08)]">
+    <div class="text-center font-num text-3xl font-bold text-ink">32 × 11</div>
+    <div class="mt-3 flex items-end justify-center gap-2">
+      <span class="grid h-11 w-11 place-items-center rounded-xl bg-blush font-num text-xl font-bold text-ink">3</span>
+      <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber font-num text-xl font-bold text-white">5</span>
+      <span class="grid h-11 w-11 place-items-center rounded-xl bg-blush font-num text-xl font-bold text-ink">2</span>
+    </div>
+    <div class="mt-2 text-center font-num text-2xl font-bold text-brand">= 352</div>
+  </div>
+
+  <!-- steps -->
+  <ol class="mt-4 space-y-2.5">
+    {
+      steps.map((s, i) => (
+        <li class="flex items-start gap-2.5">
+          <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand/10 font-num text-xs font-bold text-brand">{i + 1}</span>
+          <span class="text-[13px] leading-snug text-ink/80">{s}</span>
+        </li>
+      ))
+    }
+  </ol>
+
+  <!-- mastery -->
+  <div class="mt-auto">
+    <div class="flex items-center justify-between text-[11px] font-semibold text-muted">
+      <span>Topic mastery</span><span class="font-num text-ink">68%</span>
+    </div>
+    <div class="mt-1.5 h-2 overflow-hidden rounded-full bg-ink/8">
+      <div class="h-full rounded-full" style="width:68%;background:var(--gradient-brand);"></div>
+    </div>
+    <div class="mt-3 grid place-items-center rounded-2xl py-3 font-display text-sm font-bold text-white" style="background:var(--gradient-brand);">Practice now</div>
+  </div>
+</div>

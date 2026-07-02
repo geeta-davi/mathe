@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import OperatorField from "../components/ui/OperatorField.astro";
+import Button from "../components/ui/Button.astro";
+
+// A single /404.html serves any unmatched path; default locale (English).
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title="404" description={t("notFound.desc")} noindex>
+  <section class="relative overflow-hidden bg-paper">
+    <OperatorField tone="light" />
+    <div class="shell relative flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
+      <div class="font-display text-8xl font-extrabold leading-none text-transparent sm:text-9xl" style="background:var(--gradient-hero);-webkit-background-clip:text;background-clip:text;">404</div>
+      <h1 class="mt-6 font-display text-3xl font-extrabold text-ink sm:text-4xl">{t("notFound.title")}</h1>
+      <p class="mt-4 max-w-md text-lg text-muted">{t("notFound.desc")}</p>
+      <div class="mt-8">
+        <Button href={getRelativeLocaleUrl(lang, "")} variant="primary" size="lg">{t("notFound.cta")}</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { localeStaticPaths, getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import PageHeader from "../../components/ui/PageHeader.astro";
+import Button from "../../components/ui/Button.astro";
+import { CONTACT_EMAIL } from "../../consts";
+
+export const getStaticPaths = () => localeStaticPaths();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const breadcrumbs = [
+  { name: "mathe", item: getAbsoluteLocaleUrl(lang, "") },
+  { name: t("nav.about"), item: getAbsoluteLocaleUrl(lang, "contact") },
+];
+
+// TODO: replace with a real form endpoint (Formspree / Cloudflare Pages
+// Function / Netlify Forms). A static site cannot process the POST itself.
+const FORM_ENDPOINT = "https://formspree.io/f/your-form-id";
+const field = "w-full rounded-2xl bg-white px-4 py-3 text-ink ring-1 ring-ink/10 focus:ring-brand focus:outline-none";
+---
+
+<BaseLayout pageKey="contact" path="contact" breadcrumbs={breadcrumbs}>
+  <PageHeader title={t("contact.title")} subtitle={t("contact.subtitle")} eyebrow={t("nav.support")} />
+
+  <section class="shell py-14 md:py-20">
+    <div class="mx-auto max-w-xl">
+      <form action={FORM_ENDPOINT} method="POST" class="space-y-4">
+        <input type="hidden" name="locale" value={lang} />
+        <div>
+          <label class="mb-1.5 block text-sm font-semibold text-ink" for="name">{t("contact.name")}</label>
+          <input class={field} type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+        <div>
+          <label class="mb-1.5 block text-sm font-semibold text-ink" for="email">{t("contact.email")}</label>
+          <input class={field} type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+        <div>
+          <label class="mb-1.5 block text-sm font-semibold text-ink" for="message">{t("contact.message")}</label>
+          <textarea class={field} id="message" name="message" rows="5" required></textarea>
+        </div>
+        <Button type="submit" variant="primary" size="lg" class="w-full">{t("contact.send")}</Button>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-muted">
+        {t("contact.or")} <a class="font-semibold text-brand underline underline-offset-2" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
