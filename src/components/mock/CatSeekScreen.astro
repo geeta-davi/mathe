@@ -1,0 +1,51 @@
+---
+/**
+ * Illustrative in-app Cat & Seek screen (decorative; wrapped aria-hidden).
+ *
+ * Cat & Seek is a Queens-style logic grid: one cat per row, column and colour
+ * region, and no two cats may touch — including diagonally. Two lives, no timer.
+ */
+const SIZE = 6;
+
+// Colour regions, one per row-ish blob. Index → region colour.
+const regions = [
+  "#F43F5E", "#F43F5E", "#F59E0B", "#F59E0B", "#22D3EE", "#22D3EE",
+  "#F43F5E", "#F59E0B", "#F59E0B", "#22D3EE", "#22D3EE", "#5B3DF5",
+  "#16A34A", "#16A34A", "#F59E0B", "#22D3EE", "#5B3DF5", "#5B3DF5",
+  "#16A34A", "#16A34A", "#E879F9", "#E879F9", "#5B3DF5", "#5B3DF5",
+  "#16A34A", "#E879F9", "#E879F9", "#E879F9", "#5B3DF5", "#241712",
+  "#16A34A", "#E879F9", "#241712", "#241712", "#241712", "#241712",
+];
+
+// One cat per row/column, none adjacent — a partially solved board.
+const cats = new Set([2, 9, 12, 23, 28, 31]);
+// Cells the player has ruled out.
+const marks = new Set([0, 1, 7, 8, 14, 15, 20, 26]);
+---
+
+<div class="flex h-full w-full flex-col bg-cream p-4 font-sans">
+  <div class="mt-6 flex items-center justify-between">
+    <span class="rounded-full bg-ink px-2.5 py-1 text-[11px] font-bold text-cream">Level 7</span>
+    <span class="flex items-center gap-1 text-[13px]">
+      <span>🐾</span><span>🐾</span>
+    </span>
+  </div>
+
+  <div class="mt-5 grid gap-1" style={`grid-template-columns:repeat(${SIZE},minmax(0,1fr));`}>
+    {
+      Array.from({ length: SIZE * SIZE }).map((_, i) => (
+        <div
+          class="grid aspect-square place-items-center rounded-[5px] text-[13px] leading-none"
+          style={`background:${regions[i]}33;`}
+        >
+          {cats.has(i) ? "🐱" : marks.has(i) ? <span class="text-[10px] text-ink/30">✕</span> : ""}
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="mt-auto flex items-center justify-between rounded-2xl bg-white px-3 py-2.5">
+    <span class="text-[11px] font-semibold text-muted-2">6 / 6 cats placed</span>
+    <span class="rounded-full bg-amber/20 px-2.5 py-1 text-[11px] font-bold text-amber">Hint</span>
+  </div>
+</div>

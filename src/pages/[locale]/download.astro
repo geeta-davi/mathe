@@ -5,7 +5,7 @@ import { getAbsoluteLocaleUrl } from "astro:i18n";
 import PageHeader from "../../components/ui/PageHeader.astro";
 import StoreBadges from "../../components/ui/StoreBadges.astro";
 import PhoneMock from "../../components/mock/PhoneMock.astro";
-import DuelScreen from "../../components/mock/DuelScreen.astro";
+import ZipScreen from "../../components/mock/ZipScreen.astro";
 
 export const getStaticPaths = () => localeStaticPaths();
 
@@ -53,7 +53,7 @@ const cells = Array.from({ length: 49 }, (_, i) => (i * 7 + 3) % 5 === 0 || i % 
 
       <div class="relative">
         <div class="pointer-events-none absolute inset-0 -z-10 mx-auto max-w-[340px] rounded-full opacity-30 blur-3xl" style="background:radial-gradient(circle,#FB7185,transparent 70%);"></div>
-        <PhoneMock float><DuelScreen /></PhoneMock>
+        <PhoneMock float><ZipScreen /></PhoneMock>
       </div>
     </div>
   </section>

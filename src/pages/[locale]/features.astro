@@ -5,9 +5,9 @@ import { getAbsoluteLocaleUrl } from "astro:i18n";
 import PageHeader from "../../components/ui/PageHeader.astro";
 import Features from "../../components/home/Features.astro";
 import PhoneMock from "../../components/mock/PhoneMock.astro";
-import DuelScreen from "../../components/mock/DuelScreen.astro";
-import LearnScreen from "../../components/mock/LearnScreen.astro";
-import Leagues from "../../components/home/Leagues.astro";
+import ZipScreen from "../../components/mock/ZipScreen.astro";
+import CatSeekScreen from "../../components/mock/CatSeekScreen.astro";
+import Ladder from "../../components/home/Ladder.astro";
 import CtaBanner from "../../components/home/CtaBanner.astro";
 
 export const getStaticPaths = () => localeStaticPaths();
@@ -28,18 +28,18 @@ const breadcrumbs = [
   <section class="bg-cream py-20 md:py-28">
     <div class="shell grid items-center gap-12 md:grid-cols-2">
       <div class="grid grid-cols-2 gap-5">
-        <PhoneMock><DuelScreen /></PhoneMock>
-        <PhoneMock class="mt-10"><LearnScreen /></PhoneMock>
+        <PhoneMock><ZipScreen /></PhoneMock>
+        <PhoneMock class="mt-10"><CatSeekScreen /></PhoneMock>
       </div>
       <div>
-        <h2 class="font-display text-3xl font-extrabold text-ink sm:text-4xl">{t("feat.duel.title")}</h2>
-        <p class="mt-4 text-lg leading-relaxed text-muted">{t("feat.duel.desc")}</p>
-        <h2 class="mt-10 font-display text-3xl font-extrabold text-ink sm:text-4xl">{t("feat.learn.title")}</h2>
-        <p class="mt-4 text-lg leading-relaxed text-muted">{t("feat.learn.desc")}</p>
+        <h2 class="font-display text-3xl font-extrabold text-ink sm:text-4xl">{t("game.zip.name")}</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">{t("game.zip.desc")}</p>
+        <h2 class="mt-10 font-display text-3xl font-extrabold text-ink sm:text-4xl">{t("game.catseek.name")}</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">{t("game.catseek.desc")}</p>
       </div>
     </div>
   </section>
 
-  <Leagues />
+  <Ladder />
   <CtaBanner />
 </BaseLayout>

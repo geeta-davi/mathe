@@ -4,7 +4,7 @@ import { localeStaticPaths, getLangFromUrl, useTranslations } from "../../i18n/u
 import { getAbsoluteLocaleUrl } from "astro:i18n";
 import PageHeader from "../../components/ui/PageHeader.astro";
 import HowItWorks from "../../components/home/HowItWorks.astro";
-import TrickShowcase from "../../components/home/TrickShowcase.astro";
+import GamesShowcase from "../../components/home/GamesShowcase.astro";
 import CtaBanner from "../../components/home/CtaBanner.astro";
 
 export const getStaticPaths = () => localeStaticPaths();
@@ -22,6 +22,6 @@ const breadcrumbs = [
   <div class="py-6 md:py-10">
     <HowItWorks heading={false} />
   </div>
-  <TrickShowcase />
+  <GamesShowcase />
   <CtaBanner />
 </BaseLayout>

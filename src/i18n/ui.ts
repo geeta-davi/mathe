@@ -2,6 +2,13 @@
  * UI-string dictionaries. Keys are shared across every locale; the
  * `useTranslations` helper falls back to English for any missing key.
  * Long-form content (legal/about/FAQ) lives in Content Collections, not here.
+ *
+ * ⚠️ These strings describe a SHIPPED product. mathe is a catalog of mind games
+ * — today Zip (a timed path puzzle) and Cat & Seek (a logic grid). There are no
+ * duels, no ratings, no matchmaking, no leagues and no mental-math content; the
+ * arithmetic build was removed in the 2026-07-07 rebuild. Copy promising any of
+ * those is false advertising and contradicts the Play listing, so don't
+ * reintroduce it — add a key when the feature actually ships.
  */
 
 export const languages = ["en", "es", "fr", "de"] as const;
@@ -30,82 +37,83 @@ export const ui = {
     "nav.download": "Download",
 
     "cta.getApp": "Get the app",
-    "cta.appStore": "Download on the App Store",
+    "cta.appStore": "Coming soon to iOS",
     "cta.googlePlay": "Get it on Google Play",
     "cta.playFree": "Play free",
 
-    "hero.badge": "Free · iOS & Android",
-    "hero.title": "Learn the trick.\nWin the duel.",
+    "hero.badge": "Free · Android · iOS soon",
+    "hero.title": "Train your mind.\nOne puzzle at a time.",
     "hero.subtitle":
-      "mathe turns mental math into real-time 1v1 duels. Master pro shortcuts, then race real people and climb the ranks.",
-    "hero.note": "Free to play · no ads to start · new tricks every week",
+      "mathe is a growing collection of mind games — handcrafted logic puzzles that sharpen focus, patience and pattern-spotting. Solve a level, keep your streak, climb the ladder.",
+    "hero.note": "Free to play · start as a guest · new levels every week",
 
-    "stats.players": "Players",
-    "stats.duels": "Duels played",
-    "stats.tricks": "Math tricks",
-    "stats.countries": "Countries",
+    "proof.games": "Two games, more coming",
+    "proof.levels": "New levels every week",
+    "proof.free": "Free to play",
+    "proof.noAccount": "No account required",
 
-    "features.title": "Everything you need to get faster",
+    "features.title": "Built to make thinking a habit",
     "features.subtitle":
-      "Bite-size lessons, fair duels and a ladder worth climbing — built to make mental math a habit.",
-    "feat.learn.title": "Learn real tricks",
-    "feat.learn.desc":
-      "Short, visual lessons for the shortcuts pros use — multiply by 11, squares, percentages, profit & loss and more.",
-    "feat.duel.title": "Real-time duels",
-    "feat.duel.desc":
-      "Go head-to-head in fast 1v1 matches. Same 10 questions, seeded fair — speed and accuracy decide it.",
-    "feat.leagues.title": "Ranked leagues",
-    "feat.leagues.desc":
-      "Earn rating, climb from Bronze to Gold and beyond, and fight for promotion in weekly leagues.",
-    "feat.streaks.title": "Daily streaks",
-    "feat.streaks.desc":
-      "Keep a streak alive, collect coins and rewards, and use streak freezes on the days life gets busy.",
-    "feat.mastery.title": "Topic mastery",
-    "feat.mastery.desc":
-      "See your weak spots at a glance and track mastery per topic so you always know what to practice next.",
-    "feat.fair.title": "Fair matchmaking",
-    "feat.fair.desc":
-      "Rating-based matching pairs you with a worthy opponent — every duel is close, every win is earned.",
+      "Short sessions, honest difficulty and a ladder worth climbing — the loop that keeps you coming back.",
+    "feat.levels.title": "Handcrafted levels",
+    "feat.levels.desc":
+      "Every level is authored and machine-verified to have exactly one solution. No dead ends, no guesswork — just a curve that ramps as you climb.",
+    "feat.streak.title": "Daily streaks",
+    "feat.streak.desc":
+      "One puzzle a day keeps the streak alive. Miss a day and it resets — that small stake is what turns practice into a habit.",
+    "feat.leaderboard.title": "Leaderboards",
+    "feat.leaderboard.desc":
+      "Race the clock on every Zip level, then see where your total time lands you on the global ladder.",
+    "feat.hints.title": "Hints that think",
+    "feat.hints.desc":
+      "Stuck? Hints are worked out from your actual board, not a canned script — each one moves your reasoning forward by exactly one step.",
+    "feat.catalog.title": "A growing catalog",
+    "feat.catalog.desc":
+      "Zip and Cat & Seek today, more mind games on the way. Each new game arrives in the same ladder, streak and XP system.",
+    "feat.free.title": "Free, and yours",
+    "feat.free.desc":
+      "Play as a guest in one tap, or sign in to keep your progress. Delete your account and data whenever you want.",
 
-    "how.title": "From zero to duel-ready in four steps",
-    "how.subtitle": "The loop that makes you faster, one short session at a time.",
-    "how.step1.title": "Learn",
-    "how.step1.desc": "Pick a trick and watch a 60-second visual lesson that shows exactly how it works.",
-    "how.step2.title": "Practice",
-    "how.step2.desc": "Drill the trick against the clock until the shortcut becomes second nature.",
-    "how.step3.title": "Duel",
-    "how.step3.desc": "Get matched with a real player and race through ten questions — fastest sharp mind wins.",
-    "how.step4.title": "Climb",
-    "how.step4.desc": "Bank rating, level up your league and chase the top of the weekly leaderboard.",
+    "how.title": "Four steps, one habit",
+    "how.subtitle": "A few minutes a day is the whole commitment.",
+    "how.step1.title": "Pick a game",
+    "how.step1.desc": "Zip's path puzzles or Cat & Seek's logic grid. Each has its own ladder to climb.",
+    "how.step2.title": "Solve the level",
+    "how.step2.desc": "Work it out at your own pace. Take a hint if you need one — there's no penalty for thinking.",
+    "how.step3.title": "Keep the streak",
+    "how.step3.desc": "Any level you finish counts for the day. Come back tomorrow and keep it running.",
+    "how.step4.title": "Climb the ladder",
+    "how.step4.desc": "Clear a level to unlock the next. Difficulty ramps, and the ladder tracks how far you've come.",
 
-    "tricks.title": "A growing library of shortcuts",
-    "tricks.subtitle": "New tricks drop every week. Here are a few players love.",
-    "trick.mul11": "Multiply by 11",
-    "trick.mul11.ex": "32 × 11 = 352",
-    "trick.squares": "Squares 1–50",
-    "trick.squares.ex": "23² = 529",
-    "trick.percent": "Percentages in your head",
-    "trick.percent.ex": "18% of 250",
-    "trick.profit": "Profit & loss",
-    "trick.profit.ex": "cost ₹1,800 → +12%",
-    "trick.cube": "Cube roots",
-    "trick.cube.ex": "∛54,872 = 38",
-    "trick.divis": "Divisibility checks",
-    "trick.divis.ex": "is 4,281 ÷ 3?",
+    "games.title": "Two games. One habit.",
+    "games.subtitle":
+      "Each mind game is its own ladder, with its own rules and its own kind of thinking. More on the way.",
+    "game.zip.name": "Zip",
+    "game.zip.tag": "Path puzzle · timed",
+    "game.zip.desc":
+      "Trace a single unbroken path through every cell, hitting the numbered checkpoints in order. The clock is running.",
+    "game.catseek.name": "Cat & Seek",
+    "game.catseek.tag": "Logic grid · two lives",
+    "game.catseek.desc":
+      "Place one cat per row, column and colour — and never let two sit side by side. No timer, but you only get two mistakes.",
+    "game.soon.name": "More coming",
+    "game.soon.tag": "In the works",
+    "game.soon.desc":
+      "New mind games join the catalog with the same ladder, streak and XP you already know.",
 
-    "leagues.title": "A ladder worth climbing",
-    "leagues.subtitle":
-      "Every duel moves your rating. Finish the week high enough and you're promoted — drop too low and you fall.",
-    "leagues.bronze": "Bronze",
-    "leagues.silver": "Silver",
-    "leagues.gold": "Gold",
-    "leagues.diamond": "Diamond",
-    "leagues.promo": "Top 8 promote each week",
+    "ladder.title": "A ladder worth climbing",
+    "ladder.subtitle":
+      "Levels unlock one at a time. Each is verified solvable and graded for difficulty, so the curve is real — never random.",
+    "ladder.d1": "Gentle",
+    "ladder.d2": "Tricky",
+    "ladder.d3": "Hard",
+    "ladder.d4": "Brutal",
+    "ladder.note": "Clear a level to unlock the next",
 
-    "ctaBanner.title": "Your next duel is waiting",
-    "ctaBanner.subtitle": "Download mathe free and play your first match in under a minute.",
+    "ctaBanner.title": "Your next puzzle is waiting",
+    "ctaBanner.subtitle": "Download mathe free and solve your first level in under a minute.",
 
-    "footer.tagline": "Mental math, gamified. Learn the trick, win the duel.",
+    "footer.tagline": "Mind games, daily. Solve a level, keep your streak.",
     "footer.product": "Product",
     "footer.company": "Company",
     "footer.legal": "Legal",
@@ -120,13 +128,14 @@ export const ui = {
     "link.privacy": "Privacy Policy",
     "link.terms": "Terms of Service",
     "link.cookies": "Cookie Policy",
+    "link.deleteAccount": "Delete your account",
 
     "notFound.title": "This page took a wrong turn",
-    "notFound.desc": "The page you're looking for doesn't add up. Let's get you back on track.",
+    "notFound.desc": "That link doesn't lead anywhere. Let's get you back on track.",
     "notFound.cta": "Back to home",
 
     "download.title": "Download mathe",
-    "download.subtitle": "Free on iOS and Android. Scan the code or tap a badge to install.",
+    "download.subtitle": "Free on Android. iOS is on the way — scan the code or tap the badge to install.",
     "download.qr": "Scan to download",
 
     "support.title": "How can we help?",
@@ -154,83 +163,84 @@ export const ui = {
     "nav.about": "Acerca de",
     "nav.download": "Descargar",
 
-    "cta.getApp": "Descarga la app",
-    "cta.appStore": "Descárgala en el App Store",
-    "cta.googlePlay": "Consíguela en Google Play",
+    "cta.getApp": "Consigue la app",
+    "cta.appStore": "Próximamente en iOS",
+    "cta.googlePlay": "Disponible en Google Play",
     "cta.playFree": "Juega gratis",
 
-    "hero.badge": "Gratis · iOS y Android",
-    "hero.title": "Aprende el truco.\nGana el duelo.",
+    "hero.badge": "Gratis · Android · iOS pronto",
+    "hero.title": "Entrena tu mente.\nUn puzle a la vez.",
     "hero.subtitle":
-      "mathe convierte el cálculo mental en duelos 1v1 en tiempo real. Domina atajos de expertos y compite contra gente real subiendo de rango.",
-    "hero.note": "Gratis · sin anuncios al empezar · nuevos trucos cada semana",
+      "mathe es una colección creciente de juegos mentales: puzles de lógica hechos a mano que afinan la concentración, la paciencia y la vista para los patrones. Resuelve un nivel, mantén tu racha, sube por la escalera.",
+    "hero.note": "Gratis · empieza como invitado · niveles nuevos cada semana",
 
-    "stats.players": "Jugadores",
-    "stats.duels": "Duelos jugados",
-    "stats.tricks": "Trucos de cálculo",
-    "stats.countries": "Países",
+    "proof.games": "Dos juegos, y más en camino",
+    "proof.levels": "Niveles nuevos cada semana",
+    "proof.free": "Gratis para jugar",
+    "proof.noAccount": "Sin necesidad de cuenta",
 
-    "features.title": "Todo lo que necesitas para ser más rápido",
+    "features.title": "Hecho para convertir el pensar en hábito",
     "features.subtitle":
-      "Lecciones breves, duelos justos y una escalera que vale la pena subir: hecho para convertir el cálculo mental en un hábito.",
-    "feat.learn.title": "Aprende trucos reales",
-    "feat.learn.desc":
-      "Lecciones visuales y cortas con los atajos que usan los expertos: multiplicar por 11, cuadrados, porcentajes, ganancias y pérdidas y más.",
-    "feat.duel.title": "Duelos en tiempo real",
-    "feat.duel.desc":
-      "Enfréntate cara a cara en partidas 1v1 rápidas. Las mismas 10 preguntas, repartidas con justicia: la velocidad y la precisión deciden.",
-    "feat.leagues.title": "Ligas por rango",
-    "feat.leagues.desc":
-      "Gana puntos, sube de Bronce a Oro y más allá, y lucha por el ascenso en las ligas semanales.",
-    "feat.streaks.title": "Rachas diarias",
-    "feat.streaks.desc":
-      "Mantén tu racha, consigue monedas y recompensas y usa congeladores de racha los días complicados.",
-    "feat.mastery.title": "Dominio por tema",
-    "feat.mastery.desc":
-      "Detecta tus puntos débiles de un vistazo y sigue tu dominio por tema para saber siempre qué practicar.",
-    "feat.fair.title": "Emparejamiento justo",
-    "feat.fair.desc":
-      "El emparejamiento por rango te enfrenta a un rival a tu altura: cada duelo es reñido y cada victoria se gana.",
+      "Sesiones cortas, dificultad honesta y una escalera que merece la pena subir: el bucle que te hace volver.",
+    "feat.levels.title": "Niveles hechos a mano",
+    "feat.levels.desc":
+      "Cada nivel se diseña y se verifica automáticamente para que tenga una única solución. Sin callejones sin salida ni adivinanzas: solo una curva que sube contigo.",
+    "feat.streak.title": "Rachas diarias",
+    "feat.streak.desc":
+      "Un puzle al día mantiene viva la racha. Si fallas un día, se reinicia: ese pequeño riesgo es lo que convierte la práctica en hábito.",
+    "feat.leaderboard.title": "Clasificaciones",
+    "feat.leaderboard.desc":
+      "Compite contra el reloj en cada nivel de Zip y mira dónde te deja tu tiempo total en la clasificación global.",
+    "feat.hints.title": "Pistas que razonan",
+    "feat.hints.desc":
+      "¿Atascado? Las pistas se calculan a partir de tu tablero real, no de un guion prefijado: cada una avanza tu razonamiento exactamente un paso.",
+    "feat.catalog.title": "Un catálogo que crece",
+    "feat.catalog.desc":
+      "Hoy Zip y Cat & Seek, y más juegos mentales en camino. Cada juego nuevo llega con la misma escalera, racha y XP.",
+    "feat.free.title": "Gratis, y tuyo",
+    "feat.free.desc":
+      "Juega como invitado con un toque o inicia sesión para conservar tu progreso. Elimina tu cuenta y tus datos cuando quieras.",
 
-    "how.title": "De cero a listo para el duelo en cuatro pasos",
-    "how.subtitle": "El ciclo que te hace más rápido, una sesión corta a la vez.",
-    "how.step1.title": "Aprende",
-    "how.step1.desc": "Elige un truco y mira una lección visual de 60 segundos que muestra cómo funciona.",
-    "how.step2.title": "Practica",
-    "how.step2.desc": "Entrena el truco contra el reloj hasta que el atajo se vuelva natural.",
-    "how.step3.title": "Duela",
-    "how.step3.desc": "Te emparejamos con un jugador real y corren por diez preguntas: gana la mente rápida y afilada.",
-    "how.step4.title": "Asciende",
-    "how.step4.desc": "Acumula puntos, sube de liga y persigue lo más alto de la clasificación semanal.",
+    "how.title": "Cuatro pasos, un hábito",
+    "how.subtitle": "Unos minutos al día es todo el compromiso.",
+    "how.step1.title": "Elige un juego",
+    "how.step1.desc": "Los puzles de trazado de Zip o la cuadrícula lógica de Cat & Seek. Cada uno tiene su escalera.",
+    "how.step2.title": "Resuelve el nivel",
+    "how.step2.desc": "Tómate tu tiempo. Usa una pista si la necesitas: pensar nunca se penaliza.",
+    "how.step3.title": "Mantén la racha",
+    "how.step3.desc": "Cualquier nivel que termines cuenta para el día. Vuelve mañana y sigue sumando.",
+    "how.step4.title": "Sube la escalera",
+    "how.step4.desc": "Supera un nivel para desbloquear el siguiente. La dificultad sube y la escalera registra tu avance.",
 
-    "tricks.title": "Una biblioteca de atajos que no para de crecer",
-    "tricks.subtitle": "Nuevos trucos cada semana. Estos son algunos favoritos.",
-    "trick.mul11": "Multiplicar por 11",
-    "trick.mul11.ex": "32 × 11 = 352",
-    "trick.squares": "Cuadrados 1–50",
-    "trick.squares.ex": "23² = 529",
-    "trick.percent": "Porcentajes de cabeza",
-    "trick.percent.ex": "18% de 250",
-    "trick.profit": "Ganancias y pérdidas",
-    "trick.profit.ex": "costo ₹1.800 → +12%",
-    "trick.cube": "Raíces cúbicas",
-    "trick.cube.ex": "∛54.872 = 38",
-    "trick.divis": "Reglas de divisibilidad",
-    "trick.divis.ex": "¿4.281 ÷ 3?",
+    "games.title": "Dos juegos. Un hábito.",
+    "games.subtitle":
+      "Cada juego mental es su propia escalera, con sus reglas y su forma de pensar. Y vienen más.",
+    "game.zip.name": "Zip",
+    "game.zip.tag": "Puzle de trazado · con tiempo",
+    "game.zip.desc":
+      "Traza un único camino continuo por todas las casillas, pasando por los puntos numerados en orden. El reloj corre.",
+    "game.catseek.name": "Cat & Seek",
+    "game.catseek.tag": "Cuadrícula lógica · dos vidas",
+    "game.catseek.desc":
+      "Coloca un gato por fila, columna y color, y nunca dejes que dos queden juntos. Sin reloj, pero solo tienes dos fallos.",
+    "game.soon.name": "Más en camino",
+    "game.soon.tag": "En preparación",
+    "game.soon.desc":
+      "Los nuevos juegos mentales llegan al catálogo con la misma escalera, racha y XP que ya conoces.",
 
-    "leagues.title": "Una escalera que vale la pena subir",
-    "leagues.subtitle":
-      "Cada duelo mueve tu puntuación. Termina la semana suficientemente arriba y asciendes; baja demasiado y desciendes.",
-    "leagues.bronze": "Bronce",
-    "leagues.silver": "Plata",
-    "leagues.gold": "Oro",
-    "leagues.diamond": "Diamante",
-    "leagues.promo": "Los 8 primeros ascienden cada semana",
+    "ladder.title": "Una escalera que merece la pena",
+    "ladder.subtitle":
+      "Los niveles se desbloquean de uno en uno. Cada uno está verificado y graduado por dificultad, así que la curva es real, nunca aleatoria.",
+    "ladder.d1": "Suave",
+    "ladder.d2": "Con truco",
+    "ladder.d3": "Difícil",
+    "ladder.d4": "Brutal",
+    "ladder.note": "Supera un nivel para desbloquear el siguiente",
 
-    "ctaBanner.title": "Tu próximo duelo te espera",
-    "ctaBanner.subtitle": "Descarga mathe gratis y juega tu primera partida en menos de un minuto.",
+    "ctaBanner.title": "Tu próximo puzle te espera",
+    "ctaBanner.subtitle": "Descarga mathe gratis y resuelve tu primer nivel en menos de un minuto.",
 
-    "footer.tagline": "Cálculo mental, gamificado. Aprende el truco, gana el duelo.",
+    "footer.tagline": "Juegos mentales, cada día. Resuelve un nivel, mantén tu racha.",
     "footer.product": "Producto",
     "footer.company": "Empresa",
     "footer.legal": "Legal",
@@ -245,13 +255,14 @@ export const ui = {
     "link.privacy": "Política de privacidad",
     "link.terms": "Términos del servicio",
     "link.cookies": "Política de cookies",
+    "link.deleteAccount": "Elimina tu cuenta",
 
-    "notFound.title": "Esta página se equivocó de camino",
-    "notFound.desc": "La página que buscas no cuadra. Volvamos al buen camino.",
+    "notFound.title": "Esta página se ha perdido",
+    "notFound.desc": "Ese enlace no lleva a ninguna parte. Vamos a devolverte al camino.",
     "notFound.cta": "Volver al inicio",
 
     "download.title": "Descarga mathe",
-    "download.subtitle": "Gratis en iOS y Android. Escanea el código o toca una insignia para instalar.",
+    "download.subtitle": "Gratis en Android. iOS está en camino: escanea el código o toca el botón para instalar.",
     "download.qr": "Escanea para descargar",
 
     "support.title": "¿Cómo podemos ayudarte?",
@@ -259,7 +270,7 @@ export const ui = {
     "support.contactCta": "Contactar con soporte",
 
     "contact.title": "Ponte en contacto",
-    "contact.subtitle": "Preguntas, comentarios o prensa: nos encantará saber de ti.",
+    "contact.subtitle": "Preguntas, comentarios o prensa: nos encantará leerte.",
     "contact.name": "Nombre",
     "contact.email": "Correo electrónico",
     "contact.message": "Mensaje",
@@ -275,116 +286,118 @@ export const ui = {
 
     "nav.features": "Fonctionnalités",
     "nav.how": "Comment ça marche",
-    "nav.support": "Aide",
+    "nav.support": "Assistance",
     "nav.about": "À propos",
     "nav.download": "Télécharger",
 
-    "cta.getApp": "Télécharger l'app",
-    "cta.appStore": "Télécharger sur l'App Store",
+    "cta.getApp": "Obtenir l'app",
+    "cta.appStore": "Bientôt sur iOS",
     "cta.googlePlay": "Disponible sur Google Play",
     "cta.playFree": "Jouer gratuitement",
 
-    "hero.badge": "Gratuit · iOS et Android",
-    "hero.title": "Apprends l'astuce.\nGagne le duel.",
+    "hero.badge": "Gratuit · Android · iOS bientôt",
+    "hero.title": "Entraîne ton esprit.\nUn casse-tête à la fois.",
     "hero.subtitle":
-      "mathe transforme le calcul mental en duels 1c1 en temps réel. Maîtrise les astuces des pros, puis affronte de vrais joueurs et grimpe au classement.",
-    "hero.note": "Gratuit · sans pub au début · de nouvelles astuces chaque semaine",
+      "mathe est une collection grandissante de jeux de réflexion : des casse-têtes de logique faits main qui aiguisent la concentration, la patience et le sens du motif. Résous un niveau, garde ta série, grimpe l'échelle.",
+    "hero.note": "Gratuit · commence en invité · de nouveaux niveaux chaque semaine",
 
-    "stats.players": "Joueurs",
-    "stats.duels": "Duels joués",
-    "stats.tricks": "Astuces de calcul",
-    "stats.countries": "Pays",
+    "proof.games": "Deux jeux, et d'autres à venir",
+    "proof.levels": "De nouveaux niveaux chaque semaine",
+    "proof.free": "Gratuit",
+    "proof.noAccount": "Sans compte obligatoire",
 
-    "features.title": "Tout pour devenir plus rapide",
+    "features.title": "Conçu pour faire de la réflexion une habitude",
     "features.subtitle":
-      "Des leçons courtes, des duels équitables et une échelle qui vaut la peine d'être gravie — pour faire du calcul mental une habitude.",
-    "feat.learn.title": "Apprends de vraies astuces",
-    "feat.learn.desc":
-      "Des leçons visuelles et brèves sur les raccourcis des pros : multiplier par 11, carrés, pourcentages, bénéfices et pertes, et plus encore.",
-    "feat.duel.title": "Duels en temps réel",
-    "feat.duel.desc":
-      "Affronte un adversaire en 1c1 rapide. Les mêmes 10 questions, tirées équitablement — vitesse et précision font la différence.",
-    "feat.leagues.title": "Ligues classées",
-    "feat.leagues.desc":
-      "Gagne des points, passe de Bronze à Or et au-delà, et joue la promotion dans les ligues hebdomadaires.",
-    "feat.streaks.title": "Séries quotidiennes",
-    "feat.streaks.desc":
-      "Garde ta série active, récolte des pièces et des récompenses, et utilise des gels de série les jours chargés.",
-    "feat.mastery.title": "Maîtrise par thème",
-    "feat.mastery.desc":
-      "Repère tes points faibles d'un coup d'œil et suis ta maîtrise par thème pour toujours savoir quoi travailler.",
-    "feat.fair.title": "Matchmaking équitable",
-    "feat.fair.desc":
-      "L'appariement par classement te place face à un adversaire à ta hauteur : chaque duel est serré, chaque victoire méritée.",
+      "Des sessions courtes, une difficulté honnête et une échelle qui vaut la montée — la boucle qui te fait revenir.",
+    "feat.levels.title": "Des niveaux faits main",
+    "feat.levels.desc":
+      "Chaque niveau est conçu puis vérifié automatiquement pour n'avoir qu'une seule solution. Pas d'impasse, pas de devinette — juste une courbe qui monte avec toi.",
+    "feat.streak.title": "Séries quotidiennes",
+    "feat.streak.desc":
+      "Un casse-tête par jour garde la série en vie. Un jour manqué et elle repart de zéro : ce petit enjeu transforme la pratique en habitude.",
+    "feat.leaderboard.title": "Classements",
+    "feat.leaderboard.desc":
+      "Cours contre la montre sur chaque niveau de Zip, puis vois où ton temps total te place au classement général.",
+    "feat.hints.title": "Des indices qui réfléchissent",
+    "feat.hints.desc":
+      "Bloqué ? Les indices sont calculés à partir de ton plateau réel, pas d'un script figé : chacun fait avancer ton raisonnement d'exactement une étape.",
+    "feat.catalog.title": "Un catalogue qui grandit",
+    "feat.catalog.desc":
+      "Zip et Cat & Seek aujourd'hui, d'autres jeux de réflexion en route. Chaque nouveau jeu arrive avec la même échelle, la même série et le même XP.",
+    "feat.free.title": "Gratuit, et à toi",
+    "feat.free.desc":
+      "Joue en invité en un geste, ou connecte-toi pour conserver ta progression. Supprime ton compte et tes données quand tu veux.",
 
-    "how.title": "De zéro à prêt pour le duel en quatre étapes",
-    "how.subtitle": "La boucle qui te rend plus rapide, une courte session à la fois.",
-    "how.step1.title": "Apprends",
-    "how.step1.desc": "Choisis une astuce et regarde une leçon visuelle de 60 secondes qui montre comment elle fonctionne.",
-    "how.step2.title": "Entraîne-toi",
-    "how.step2.desc": "Répète l'astuce contre la montre jusqu'à ce que le raccourci devienne un réflexe.",
-    "how.step3.title": "Duel",
-    "how.step3.desc": "Tu es associé à un vrai joueur pour dix questions — l'esprit le plus rapide et le plus vif l'emporte.",
-    "how.step4.title": "Grimpe",
-    "how.step4.desc": "Accumule des points, monte de ligue et vise le sommet du classement hebdomadaire.",
+    "how.title": "Quatre étapes, une habitude",
+    "how.subtitle": "Quelques minutes par jour, c'est tout l'engagement.",
+    "how.step1.title": "Choisis un jeu",
+    "how.step1.desc": "Les tracés de Zip ou la grille logique de Cat & Seek. Chacun a son échelle.",
+    "how.step2.title": "Résous le niveau",
+    "how.step2.desc": "Prends ton temps. Utilise un indice si besoin — réfléchir n'est jamais pénalisé.",
+    "how.step3.title": "Garde la série",
+    "how.step3.desc": "N'importe quel niveau terminé compte pour la journée. Reviens demain et poursuis.",
+    "how.step4.title": "Grimpe l'échelle",
+    "how.step4.desc": "Termine un niveau pour débloquer le suivant. La difficulté monte, et l'échelle suit ton parcours.",
 
-    "tricks.title": "Une bibliothèque d'astuces qui s'agrandit",
-    "tricks.subtitle": "De nouvelles astuces chaque semaine. En voici quelques favorites.",
-    "trick.mul11": "Multiplier par 11",
-    "trick.mul11.ex": "32 × 11 = 352",
-    "trick.squares": "Carrés 1–50",
-    "trick.squares.ex": "23² = 529",
-    "trick.percent": "Pourcentages de tête",
-    "trick.percent.ex": "18 % de 250",
-    "trick.profit": "Bénéfices et pertes",
-    "trick.profit.ex": "coût ₹1 800 → +12 %",
-    "trick.cube": "Racines cubiques",
-    "trick.cube.ex": "∛54 872 = 38",
-    "trick.divis": "Critères de divisibilité",
-    "trick.divis.ex": "4 281 ÷ 3 ?",
+    "games.title": "Deux jeux. Une habitude.",
+    "games.subtitle":
+      "Chaque jeu de réflexion est sa propre échelle, avec ses règles et sa façon de penser. D'autres arrivent.",
+    "game.zip.name": "Zip",
+    "game.zip.tag": "Casse-tête de tracé · chronométré",
+    "game.zip.desc":
+      "Trace un seul chemin continu à travers toutes les cases, en passant par les points numérotés dans l'ordre. Le chrono tourne.",
+    "game.catseek.name": "Cat & Seek",
+    "game.catseek.tag": "Grille logique · deux vies",
+    "game.catseek.desc":
+      "Place un chat par ligne, colonne et couleur — et ne laisse jamais deux chats côte à côte. Pas de chrono, mais seulement deux erreurs.",
+    "game.soon.name": "D'autres arrivent",
+    "game.soon.tag": "En préparation",
+    "game.soon.desc":
+      "Les nouveaux jeux rejoignent le catalogue avec l'échelle, la série et l'XP que tu connais déjà.",
 
-    "leagues.title": "Une échelle qui vaut la peine d'être gravie",
-    "leagues.subtitle":
-      "Chaque duel fait bouger ton classement. Termine la semaine assez haut et tu montes ; descends trop bas et tu chutes.",
-    "leagues.bronze": "Bronze",
-    "leagues.silver": "Argent",
-    "leagues.gold": "Or",
-    "leagues.diamond": "Diamant",
-    "leagues.promo": "Les 8 premiers montent chaque semaine",
+    "ladder.title": "Une échelle qui vaut la montée",
+    "ladder.subtitle":
+      "Les niveaux se débloquent un par un. Chacun est vérifié et noté en difficulté, donc la courbe est réelle — jamais aléatoire.",
+    "ladder.d1": "Doux",
+    "ladder.d2": "Retors",
+    "ladder.d3": "Difficile",
+    "ladder.d4": "Brutal",
+    "ladder.note": "Termine un niveau pour débloquer le suivant",
 
-    "ctaBanner.title": "Ton prochain duel t'attend",
-    "ctaBanner.subtitle": "Télécharge mathe gratuitement et joue ta première partie en moins d'une minute.",
+    "ctaBanner.title": "Ton prochain casse-tête t'attend",
+    "ctaBanner.subtitle": "Télécharge mathe gratuitement et résous ton premier niveau en moins d'une minute.",
 
-    "footer.tagline": "Le calcul mental, version jeu. Apprends l'astuce, gagne le duel.",
+    "footer.tagline": "Des jeux de réflexion, chaque jour. Résous un niveau, garde ta série.",
     "footer.product": "Produit",
     "footer.company": "Entreprise",
-    "footer.legal": "Légal",
+    "footer.legal": "Mentions légales",
     "footer.rights": "Tous droits réservés.",
 
     "link.features": "Fonctionnalités",
     "link.how": "Comment ça marche",
     "link.download": "Télécharger",
-    "link.support": "Aide et FAQ",
+    "link.support": "Assistance et FAQ",
     "link.contact": "Contact",
     "link.about": "À propos",
     "link.privacy": "Politique de confidentialité",
     "link.terms": "Conditions d'utilisation",
     "link.cookies": "Politique relative aux cookies",
+    "link.deleteAccount": "Supprimer ton compte",
 
-    "notFound.title": "Cette page a pris un mauvais virage",
-    "notFound.desc": "La page que tu cherches ne tombe pas juste. Reprenons le bon chemin.",
+    "notFound.title": "Cette page s'est perdue",
+    "notFound.desc": "Ce lien ne mène nulle part. On te remet sur la bonne voie.",
     "notFound.cta": "Retour à l'accueil",
 
     "download.title": "Télécharger mathe",
-    "download.subtitle": "Gratuit sur iOS et Android. Scanne le code ou touche un badge pour installer.",
+    "download.subtitle": "Gratuit sur Android. iOS arrive — scanne le code ou touche le bouton pour installer.",
     "download.qr": "Scanne pour télécharger",
 
     "support.title": "Comment pouvons-nous aider ?",
-    "support.subtitle": "Les réponses aux questions les plus fréquentes. Toujours bloqué ? Écris-nous à tout moment.",
-    "support.contactCta": "Contacter l'aide",
+    "support.subtitle": "Les réponses aux questions les plus fréquentes. Toujours bloqué ? Écris-nous.",
+    "support.contactCta": "Contacter l'assistance",
 
     "contact.title": "Nous contacter",
-    "contact.subtitle": "Questions, retours ou presse — nous serions ravis d'avoir de tes nouvelles.",
+    "contact.subtitle": "Questions, retours ou presse — on serait ravis de te lire.",
     "contact.name": "Nom",
     "contact.email": "E-mail",
     "contact.message": "Message",
@@ -405,82 +418,83 @@ export const ui = {
     "nav.download": "Herunterladen",
 
     "cta.getApp": "App holen",
-    "cta.appStore": "Im App Store laden",
-    "cta.googlePlay": "Bei Google Play holen",
+    "cta.appStore": "Bald für iOS",
+    "cta.googlePlay": "Jetzt bei Google Play",
     "cta.playFree": "Kostenlos spielen",
 
-    "hero.badge": "Kostenlos · iOS & Android",
-    "hero.title": "Lern den Trick.\nGewinn das Duell.",
+    "hero.badge": "Kostenlos · Android · iOS bald",
+    "hero.title": "Trainiere deinen Kopf.\nEin Rätsel nach dem anderen.",
     "hero.subtitle":
-      "mathe macht aus Kopfrechnen echte 1-gegen-1-Duelle in Echtzeit. Meistere Profi-Tricks, tritt gegen echte Leute an und steig im Rang auf.",
-    "hero.note": "Kostenlos · anfangs werbefrei · jede Woche neue Tricks",
+      "mathe ist eine wachsende Sammlung von Denkspielen — handgemachte Logikrätsel, die Konzentration, Geduld und den Blick für Muster schärfen. Löse ein Level, halte deine Serie, erklimme die Leiter.",
+    "hero.note": "Kostenlos · starte als Gast · jede Woche neue Level",
 
-    "stats.players": "Spieler",
-    "stats.duels": "Gespielte Duelle",
-    "stats.tricks": "Rechentricks",
-    "stats.countries": "Länder",
+    "proof.games": "Zwei Spiele, weitere folgen",
+    "proof.levels": "Jede Woche neue Level",
+    "proof.free": "Kostenlos spielbar",
+    "proof.noAccount": "Kein Konto nötig",
 
-    "features.title": "Alles, um schneller zu werden",
+    "features.title": "Gemacht, damit Denken zur Gewohnheit wird",
     "features.subtitle":
-      "Kurze Lektionen, faire Duelle und eine Leiter, die sich lohnt — damit Kopfrechnen zur Gewohnheit wird.",
-    "feat.learn.title": "Lern echte Tricks",
-    "feat.learn.desc":
-      "Kurze, visuelle Lektionen zu den Abkürzungen der Profis — mal 11, Quadratzahlen, Prozente, Gewinn & Verlust und mehr.",
-    "feat.duel.title": "Duelle in Echtzeit",
-    "feat.duel.desc":
-      "Tritt in schnellen 1-gegen-1-Matches an. Dieselben 10 Fragen, fair verteilt — Tempo und Genauigkeit entscheiden.",
-    "feat.leagues.title": "Ranglisten-Ligen",
-    "feat.leagues.desc":
-      "Sammle Wertung, steig von Bronze über Gold hinaus auf und kämpfe in Wochenligen um den Aufstieg.",
-    "feat.streaks.title": "Tägliche Serien",
-    "feat.streaks.desc":
-      "Halte deine Serie am Leben, sammle Münzen und Belohnungen und nutze Serien-Freezes an stressigen Tagen.",
-    "feat.mastery.title": "Themen-Meisterschaft",
-    "feat.mastery.desc":
-      "Erkenne deine Schwachstellen auf einen Blick und verfolge deine Meisterschaft pro Thema — so weißt du immer, was als Nächstes dran ist.",
-    "feat.fair.title": "Faires Matchmaking",
-    "feat.fair.desc":
-      "Das wertungsbasierte Matching stellt dir einen ebenbürtigen Gegner gegenüber — jedes Duell ist knapp, jeder Sieg verdient.",
+      "Kurze Sessions, ehrliche Schwierigkeit und eine Leiter, die sich lohnt — die Schleife, die dich zurückbringt.",
+    "feat.levels.title": "Handgemachte Level",
+    "feat.levels.desc":
+      "Jedes Level wird entworfen und maschinell geprüft, damit es genau eine Lösung hat. Keine Sackgassen, kein Raten — nur eine Kurve, die mit dir steigt.",
+    "feat.streak.title": "Tägliche Serien",
+    "feat.streak.desc":
+      "Ein Rätsel am Tag hält die Serie am Leben. Ein verpasster Tag setzt sie zurück — genau dieser kleine Einsatz macht aus Übung eine Gewohnheit.",
+    "feat.leaderboard.title": "Bestenlisten",
+    "feat.leaderboard.desc":
+      "Spiele in jedem Zip-Level gegen die Uhr und sieh, wo dich deine Gesamtzeit in der globalen Rangliste einordnet.",
+    "feat.hints.title": "Hinweise, die mitdenken",
+    "feat.hints.desc":
+      "Feststeckt? Hinweise werden aus deinem tatsächlichen Spielfeld berechnet, nicht aus einem festen Skript — jeder bringt dein Denken genau einen Schritt weiter.",
+    "feat.catalog.title": "Ein wachsender Katalog",
+    "feat.catalog.desc":
+      "Heute Zip und Cat & Seek, weitere Denkspiele sind unterwegs. Jedes neue Spiel kommt mit derselben Leiter, Serie und XP.",
+    "feat.free.title": "Kostenlos, und deins",
+    "feat.free.desc":
+      "Spiele mit einem Tipp als Gast oder melde dich an, um deinen Fortschritt zu behalten. Lösche Konto und Daten jederzeit.",
 
-    "how.title": "In vier Schritten vom Start zum Duell",
-    "how.subtitle": "Die Schleife, die dich schneller macht — eine kurze Session nach der anderen.",
-    "how.step1.title": "Lernen",
-    "how.step1.desc": "Wähl einen Trick und schau eine 60-Sekunden-Lektion, die genau zeigt, wie er funktioniert.",
-    "how.step2.title": "Üben",
-    "how.step2.desc": "Übe den Trick gegen die Uhr, bis die Abkürzung in Fleisch und Blut übergeht.",
-    "how.step3.title": "Duellieren",
-    "how.step3.desc": "Du wirst mit einem echten Spieler gematcht und rast durch zehn Fragen — der schnellste, klarste Kopf gewinnt.",
-    "how.step4.title": "Aufsteigen",
-    "how.step4.desc": "Sammle Wertung, steig in der Liga auf und jage die Spitze der Wochenrangliste.",
+    "how.title": "Vier Schritte, eine Gewohnheit",
+    "how.subtitle": "Ein paar Minuten am Tag — mehr braucht es nicht.",
+    "how.step1.title": "Wähle ein Spiel",
+    "how.step1.desc": "Zips Pfadrätsel oder das Logikgitter von Cat & Seek. Jedes hat seine eigene Leiter.",
+    "how.step2.title": "Löse das Level",
+    "how.step2.desc": "Lass dir Zeit. Nimm einen Hinweis, wenn du einen brauchst — Nachdenken wird nie bestraft.",
+    "how.step3.title": "Halte die Serie",
+    "how.step3.desc": "Jedes abgeschlossene Level zählt für den Tag. Komm morgen wieder und mach weiter.",
+    "how.step4.title": "Erklimme die Leiter",
+    "how.step4.desc": "Schaffe ein Level, um das nächste freizuschalten. Die Schwierigkeit steigt, die Leiter zeigt deinen Weg.",
 
-    "tricks.title": "Eine wachsende Sammlung an Abkürzungen",
-    "tricks.subtitle": "Jede Woche neue Tricks. Hier ein paar Favoriten.",
-    "trick.mul11": "Mal 11 rechnen",
-    "trick.mul11.ex": "32 × 11 = 352",
-    "trick.squares": "Quadratzahlen 1–50",
-    "trick.squares.ex": "23² = 529",
-    "trick.percent": "Prozente im Kopf",
-    "trick.percent.ex": "18 % von 250",
-    "trick.profit": "Gewinn & Verlust",
-    "trick.profit.ex": "Kosten ₹1.800 → +12 %",
-    "trick.cube": "Kubikwurzeln",
-    "trick.cube.ex": "∛54.872 = 38",
-    "trick.divis": "Teilbarkeitsregeln",
-    "trick.divis.ex": "4.281 ÷ 3?",
+    "games.title": "Zwei Spiele. Eine Gewohnheit.",
+    "games.subtitle":
+      "Jedes Denkspiel ist seine eigene Leiter, mit eigenen Regeln und eigener Denkweise. Weitere folgen.",
+    "game.zip.name": "Zip",
+    "game.zip.tag": "Pfadrätsel · auf Zeit",
+    "game.zip.desc":
+      "Zeichne einen einzigen durchgehenden Pfad durch jedes Feld und triff die nummerierten Punkte der Reihe nach. Die Uhr läuft.",
+    "game.catseek.name": "Cat & Seek",
+    "game.catseek.tag": "Logikgitter · zwei Leben",
+    "game.catseek.desc":
+      "Setze eine Katze pro Zeile, Spalte und Farbe — und lass nie zwei nebeneinander sitzen. Keine Uhr, aber nur zwei Fehler.",
+    "game.soon.name": "Mehr in Arbeit",
+    "game.soon.tag": "In Vorbereitung",
+    "game.soon.desc":
+      "Neue Denkspiele kommen mit derselben Leiter, Serie und XP in den Katalog, die du schon kennst.",
 
-    "leagues.title": "Eine Leiter, die sich lohnt",
-    "leagues.subtitle":
-      "Jedes Duell bewegt deine Wertung. Beende die Woche weit genug oben und du steigst auf — fällst du zu tief, geht's abwärts.",
-    "leagues.bronze": "Bronze",
-    "leagues.silver": "Silber",
-    "leagues.gold": "Gold",
-    "leagues.diamond": "Diamant",
-    "leagues.promo": "Die Top 8 steigen jede Woche auf",
+    "ladder.title": "Eine Leiter, die sich lohnt",
+    "ladder.subtitle":
+      "Level schalten sich einzeln frei. Jedes ist auf Lösbarkeit geprüft und nach Schwierigkeit bewertet — die Kurve ist echt, nie zufällig.",
+    "ladder.d1": "Sanft",
+    "ladder.d2": "Kniffelig",
+    "ladder.d3": "Schwer",
+    "ladder.d4": "Brutal",
+    "ladder.note": "Schaffe ein Level, um das nächste freizuschalten",
 
-    "ctaBanner.title": "Dein nächstes Duell wartet",
-    "ctaBanner.subtitle": "Lad mathe kostenlos herunter und spiel dein erstes Match in unter einer Minute.",
+    "ctaBanner.title": "Dein nächstes Rätsel wartet",
+    "ctaBanner.subtitle": "Lade mathe kostenlos und löse dein erstes Level in unter einer Minute.",
 
-    "footer.tagline": "Kopfrechnen als Spiel. Lern den Trick, gewinn das Duell.",
+    "footer.tagline": "Denkspiele, täglich. Löse ein Level, halte deine Serie.",
     "footer.product": "Produkt",
     "footer.company": "Unternehmen",
     "footer.legal": "Rechtliches",
@@ -495,21 +509,22 @@ export const ui = {
     "link.privacy": "Datenschutzerklärung",
     "link.terms": "Nutzungsbedingungen",
     "link.cookies": "Cookie-Richtlinie",
+    "link.deleteAccount": "Konto löschen",
 
-    "notFound.title": "Diese Seite hat sich verrechnet",
-    "notFound.desc": "Die gesuchte Seite geht nicht auf. Bringen wir dich zurück auf Kurs.",
-    "notFound.cta": "Zurück zur Startseite",
+    "notFound.title": "Diese Seite hat sich verlaufen",
+    "notFound.desc": "Dieser Link führt ins Leere. Zurück auf den richtigen Weg.",
+    "notFound.cta": "Zur Startseite",
 
     "download.title": "mathe herunterladen",
-    "download.subtitle": "Kostenlos für iOS und Android. Scanne den Code oder tippe auf ein Badge zum Installieren.",
+    "download.subtitle": "Kostenlos für Android. iOS kommt — scanne den Code oder tippe auf den Button.",
     "download.qr": "Zum Herunterladen scannen",
 
     "support.title": "Wie können wir helfen?",
-    "support.subtitle": "Antworten auf die häufigsten Fragen. Noch Fragen? Schreib uns jederzeit.",
+    "support.subtitle": "Antworten auf die häufigsten Fragen. Immer noch unklar? Schreib uns jederzeit.",
     "support.contactCta": "Support kontaktieren",
 
     "contact.title": "Kontakt aufnehmen",
-    "contact.subtitle": "Fragen, Feedback oder Presse — wir freuen uns, von dir zu hören.",
+    "contact.subtitle": "Fragen, Feedback oder Presse — wir freuen uns von dir zu hören.",
     "contact.name": "Name",
     "contact.email": "E-Mail",
     "contact.message": "Nachricht",

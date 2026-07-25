@@ -2,7 +2,7 @@
 
 /* ============================================================
    mathe design tokens — derived from the "Mathe Branding" kit.
-   Namespaced (brand/accent/aqua/duel/ink/…) to avoid clashing
+   Namespaced (brand/accent/aqua/violet/ink/…) to avoid clashing
    with Tailwind's default color scales.
    ============================================================ */
 @theme {
@@ -11,7 +11,7 @@
   --color-brand-2: #fb7185;
   --color-accent: #f59e0b;
   --color-aqua: #22d3ee;
-  --color-duel: #5b3df5;
+  --color-violet: #5b3df5;
 
   --color-ink: #241712;
   --color-cream: #fff6ec;

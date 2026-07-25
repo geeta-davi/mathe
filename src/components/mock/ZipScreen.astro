@@ -1,0 +1,53 @@
+---
+/**
+ * Illustrative in-app Zip screen (decorative; wrapped aria-hidden by PhoneMock).
+ *
+ * Zip is a path puzzle: trace one unbroken line through every cell, hitting the
+ * numbered checkpoints in order, against the clock.
+ */
+const SIZE = 6;
+
+// Snake path through every cell, row by row — the shape a solved board takes.
+const path = new Set<number>();
+for (let r = 0; r < SIZE; r++) {
+  for (let c = 0; c < SIZE; c++) path.add(r * SIZE + (r % 2 === 0 ? c : SIZE - 1 - c));
+}
+// Cells drawn as already-traced (the run in progress).
+const traced = new Set(Array.from(path).slice(0, 21));
+const checkpoints: Record<number, number> = { 0: 1, 11: 2, 23: 3, 30: 4, 35: 5 };
+---
+
+<div class="flex h-full w-full flex-col bg-cream p-4 font-sans">
+  <div class="mt-6 flex items-center justify-between">
+    <span class="rounded-full bg-ink px-2.5 py-1 text-[11px] font-bold text-cream">Level 12</span>
+    <span class="font-num text-lg font-bold text-brand">0:42</span>
+  </div>
+
+  <div class="mt-5 grid gap-1.5" style={`grid-template-columns:repeat(${SIZE},minmax(0,1fr));`}>
+    {
+      Array.from({ length: SIZE * SIZE }).map((_, i) => {
+        const isTraced = traced.has(i);
+        const cp = checkpoints[i];
+        return (
+          <div
+            class="grid aspect-square place-items-center rounded-[6px] font-num text-[11px] font-bold"
+            style={
+              cp
+                ? "background:var(--gradient-brand,#F43F5E);color:#fff;"
+                : isTraced
+                  ? "background:rgba(244,63,94,.22);color:#F43F5E;"
+                  : "background:#fff;color:#B9AAA1;"
+            }
+          >
+            {cp ?? ""}
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <div class="mt-auto flex items-center justify-between rounded-2xl bg-white px-3 py-2.5">
+    <span class="text-[11px] font-semibold text-muted-2">21 / 36 cells</span>
+    <span class="rounded-full bg-amber/20 px-2.5 py-1 text-[11px] font-bold text-amber">Hint</span>
+  </div>
+</div>

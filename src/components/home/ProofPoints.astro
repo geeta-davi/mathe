@@ -1,0 +1,33 @@
+---
+/**
+ * Four honest claims under the hero.
+ *
+ * Replaces the old `Stats` band, which printed invented counters ("250k+
+ * players", "12M+ duels") for an app that had no production release. Play
+ * publishes the real install count, so fabricated figures were both false
+ * advertising and trivially disprovable.
+ *
+ * Every claim here must stay true as the catalog grows — update the strings
+ * alongside the product, never ahead of it.
+ */
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const claims = ["proof.games", "proof.levels", "proof.free", "proof.noAccount"] as const;
+---
+
+<section class="shell -mt-6 md:-mt-10">
+  <ul
+    class="grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-ink/8 shadow-[0_16px_40px_rgba(40,20,10,.08)] md:grid-cols-4"
+  >
+    {
+      claims.map((key) => (
+        <li class="flex items-center justify-center bg-white px-4 py-6 text-center">
+          <span class="text-sm font-semibold text-ink/85 sm:text-base">{t(key)}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

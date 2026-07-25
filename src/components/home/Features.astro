@@ -9,12 +9,18 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const features = [
-  { title: "feat.learn.title", desc: "feat.learn.desc", color: "#F43F5E", paths: ["M12 7v13", "M3 6a9 9 0 0 1 9 1 9 9 0 0 1 9-1v13a9 9 0 0 0-9 1 9 9 0 0 0-9-1z"] },
-  { title: "feat.duel.title", desc: "feat.duel.desc", color: "#5B3DF5", paths: ["M13 2 4 14h7l-1 8 9-12h-7z"] },
-  { title: "feat.leagues.title", desc: "feat.leagues.desc", color: "#F59E0B", paths: ["M8 21h8M12 17v4", "M7 4h10v4a5 5 0 0 1-10 0z", "M7 5H4v1a4 4 0 0 0 3 4M17 5h3v1a4 4 0 0 1-3 4"] },
-  { title: "feat.streaks.title", desc: "feat.streaks.desc", color: "#F43F5E", paths: ["M12 3s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4 0 1.5 1 2 1.5 2 1.5 0 .5-4 1.5-7z"] },
-  { title: "feat.mastery.title", desc: "feat.mastery.desc", color: "#22D3EE", paths: ["M4 20V11M10 20V5M16 20v-6M2 20h18"] },
-  { title: "feat.fair.title", desc: "feat.fair.desc", color: "#241712", paths: ["M12 3v18M6 21h12", "M5 7h14", "M5 7 2 13a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"] },
+  // Grid — handcrafted, uniquely-solvable levels.
+  { title: "feat.levels.title", desc: "feat.levels.desc", color: "#5B3DF5", paths: ["M3 3h18v18H3z", "M9 3v18M15 3v18", "M3 9h18M3 15h18"] },
+  // Flame — the daily streak.
+  { title: "feat.streak.title", desc: "feat.streak.desc", color: "#F43F5E", paths: ["M12 3s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4 0 1.5 1 2 1.5 2 1.5 0 .5-4 1.5-7z"] },
+  // Bars — per-level times and the global ladder.
+  { title: "feat.leaderboard.title", desc: "feat.leaderboard.desc", color: "#F59E0B", paths: ["M4 20V11M10 20V5M16 20v-6M2 20h18"] },
+  // Bulb — hints derived from the player's live board.
+  { title: "feat.hints.title", desc: "feat.hints.desc", color: "#22D3EE", paths: ["M9 18h6", "M10 22h4", "M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"] },
+  // Layers — the growing game catalog.
+  { title: "feat.catalog.title", desc: "feat.catalog.desc", color: "#16A34A", paths: ["m12 2 9 5-9 5-9-5 9-5z", "m3 12 9 5 9-5", "m3 17 9 5 9-5"] },
+  // Heart — free, guest-first, deletable.
+  { title: "feat.free.title", desc: "feat.free.desc", color: "#241712", paths: ["M20.8 6.6a5 5 0 0 0-7.1 0L12 8.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 22l8.8-8.3a5 5 0 0 0 0-7.1z"] },
 ] as const;
 ---
 

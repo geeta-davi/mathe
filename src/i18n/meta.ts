@@ -22,77 +22,77 @@ type Meta = { title: string; description: string };
 export const pageMeta: Record<PageKey, Record<Lang, Meta>> = {
   home: {
     en: {
-      title: "mathe — mental-math duels. Learn the trick, win the duel.",
+      title: "mathe — mind games. Train your mind, one puzzle at a time.",
       description:
-        "Master mental-math shortcuts, then race real players in real-time 1v1 duels and climb the ranks. Free on iOS and Android.",
+        "A growing collection of mind games — handcrafted logic puzzles with daily streaks, leaderboards and a ladder worth climbing. Free on Android.",
     },
     es: {
-      title: "mathe — duelos de cálculo mental. Aprende el truco, gana el duelo.",
+      title: "mathe — juegos mentales. Entrena tu mente, un puzle a la vez.",
       description:
-        "Domina atajos de cálculo mental y compite contra jugadores reales en duelos 1v1 en tiempo real subiendo de rango. Gratis en iOS y Android.",
+        "Una colección creciente de juegos mentales: puzles de lógica hechos a mano con rachas diarias, clasificaciones y una escalera que merece la pena. Gratis en Android.",
     },
     fr: {
-      title: "mathe — duels de calcul mental. Apprends l'astuce, gagne le duel.",
+      title: "mathe — jeux de réflexion. Entraîne ton esprit, un casse-tête à la fois.",
       description:
-        "Maîtrise les astuces de calcul mental, puis affronte de vrais joueurs en duels 1c1 en temps réel et grimpe au classement. Gratuit sur iOS et Android.",
+        "Une collection grandissante de jeux de réflexion : des casse-têtes de logique faits main, avec séries quotidiennes, classements et une échelle à gravir. Gratuit sur Android.",
     },
     de: {
-      title: "mathe — Kopfrechen-Duelle. Lern den Trick, gewinn das Duell.",
+      title: "mathe — Denkspiele. Trainiere deinen Kopf, ein Rätsel nach dem anderen.",
       description:
-        "Meistere Kopfrechen-Tricks, tritt in Echtzeit-1-gegen-1-Duellen gegen echte Spieler an und steig im Rang auf. Kostenlos für iOS und Android.",
+        "Eine wachsende Sammlung von Denkspielen — handgemachte Logikrätsel mit täglichen Serien, Bestenlisten und einer Leiter, die sich lohnt. Kostenlos für Android.",
     },
   },
   features: {
     en: {
       title: "Features",
       description:
-        "Tricks, real-time duels, ranked leagues, daily streaks and topic mastery — everything in mathe that makes mental math faster.",
+        "Handcrafted levels, daily streaks, leaderboards and hints that think — everything in mathe that turns a few minutes into a habit.",
     },
     es: {
       title: "Funciones",
       description:
-        "Trucos, duelos en tiempo real, ligas por rango, rachas diarias y dominio por tema: todo lo que en mathe acelera tu cálculo mental.",
+        "Niveles hechos a mano, rachas diarias, clasificaciones y pistas que razonan: todo lo que en mathe convierte unos minutos en un hábito.",
     },
     fr: {
       title: "Fonctionnalités",
       description:
-        "Astuces, duels en temps réel, ligues classées, séries quotidiennes et maîtrise par thème — tout ce qui accélère ton calcul mental dans mathe.",
+        "Des niveaux faits main, des séries quotidiennes, des classements et des indices qui réfléchissent — tout ce qui fait de quelques minutes une habitude.",
     },
     de: {
       title: "Funktionen",
       description:
-        "Tricks, Echtzeit-Duelle, Ranglisten-Ligen, tägliche Serien und Themen-Meisterschaft — alles in mathe, das dein Kopfrechnen schneller macht.",
+        "Handgemachte Level, tägliche Serien, Bestenlisten und mitdenkende Hinweise — alles in mathe, das aus ein paar Minuten eine Gewohnheit macht.",
     },
   },
   how: {
     en: {
       title: "How it works",
-      description: "Learn a trick, practice against the clock, duel a real player and climb the leagues — the mathe loop in four steps.",
+      description: "Pick a game, solve the level, keep your streak and climb the ladder — the mathe loop in four steps.",
     },
     es: {
       title: "Cómo funciona",
-      description: "Aprende un truco, practica contra el reloj, batéte con un jugador real y sube de liga: el ciclo de mathe en cuatro pasos.",
+      description: "Elige un juego, resuelve el nivel, mantén tu racha y sube la escalera: el ciclo de mathe en cuatro pasos.",
     },
     fr: {
       title: "Comment ça marche",
-      description: "Apprends une astuce, entraîne-toi contre la montre, affronte un vrai joueur et grimpe les ligues — la boucle mathe en quatre étapes.",
+      description: "Choisis un jeu, résous le niveau, garde ta série et grimpe l'échelle — la boucle mathe en quatre étapes.",
     },
     de: {
       title: "So funktioniert's",
-      description: "Lern einen Trick, übe gegen die Uhr, duelliere dich mit echten Spielern und steig in den Ligen auf — die mathe-Schleife in vier Schritten.",
+      description: "Wähle ein Spiel, löse das Level, halte deine Serie und erklimme die Leiter — die mathe-Schleife in vier Schritten.",
     },
   },
   download: {
-    en: { title: "Download", description: "Get mathe free on iOS and Android. Play your first mental-math duel in under a minute." },
-    es: { title: "Descargar", description: "Consigue mathe gratis en iOS y Android. Juega tu primer duelo de cálculo mental en menos de un minuto." },
-    fr: { title: "Télécharger", description: "Obtiens mathe gratuitement sur iOS et Android. Joue ton premier duel de calcul mental en moins d'une minute." },
-    de: { title: "Herunterladen", description: "Hol dir mathe kostenlos für iOS und Android. Spiel dein erstes Kopfrechen-Duell in unter einer Minute." },
+    en: { title: "Download", description: "Get mathe free on Android. Solve your first level in under a minute. iOS is on the way." },
+    es: { title: "Descargar", description: "Consigue mathe gratis en Android. Resuelve tu primer nivel en menos de un minuto. iOS está en camino." },
+    fr: { title: "Télécharger", description: "Obtiens mathe gratuitement sur Android. Résous ton premier niveau en moins d'une minute. iOS arrive." },
+    de: { title: "Herunterladen", description: "Hol dir mathe kostenlos für Android. Löse dein erstes Level in unter einer Minute. iOS kommt." },
   },
   support: {
-    en: { title: "Support & FAQ", description: "Answers about duels, ratings, streaks, accounts and billing — plus how to reach the mathe team." },
-    es: { title: "Soporte y FAQ", description: "Respuestas sobre duelos, puntuación, rachas, cuentas y pagos, y cómo contactar con el equipo de mathe." },
-    fr: { title: "Aide et FAQ", description: "Réponses sur les duels, le classement, les séries, les comptes et la facturation — et comment joindre l'équipe mathe." },
-    de: { title: "Hilfe & FAQ", description: "Antworten zu Duellen, Wertung, Serien, Konten und Abrechnung — und wie du das mathe-Team erreichst." },
+    en: { title: "Support & FAQ", description: "Answers about levels, streaks, hints, leaderboards and accounts — plus how to reach the mathe team." },
+    es: { title: "Soporte y FAQ", description: "Respuestas sobre niveles, rachas, pistas, clasificaciones y cuentas, y cómo contactar con el equipo de mathe." },
+    fr: { title: "Aide et FAQ", description: "Réponses sur les niveaux, les séries, les indices, les classements et les comptes — et comment joindre l'équipe mathe." },
+    de: { title: "Hilfe & FAQ", description: "Antworten zu Leveln, Serien, Hinweisen, Bestenlisten und Konten — und wie du das mathe-Team erreichst." },
   },
   contact: {
     en: { title: "Contact", description: "Questions, feedback or press enquiries — get in touch with the mathe team." },
@@ -101,10 +101,10 @@ export const pageMeta: Record<PageKey, Record<Lang, Meta>> = {
     de: { title: "Kontakt", description: "Fragen, Feedback oder Presseanfragen — kontaktiere das mathe-Team." },
   },
   about: {
-    en: { title: "About", description: "The team and mission behind mathe — making mental math a game worth playing every day." },
-    es: { title: "Acerca de", description: "El equipo y la misión detrás de mathe: convertir el cálculo mental en un juego que vale la pena jugar cada día." },
-    fr: { title: "À propos", description: "L'équipe et la mission derrière mathe — faire du calcul mental un jeu qui vaut la peine d'être joué chaque jour." },
-    de: { title: "Über uns", description: "Das Team und die Mission hinter mathe — Kopfrechnen zu einem Spiel machen, das sich täglich lohnt." },
+    en: { title: "About", description: "The idea behind mathe — making a few minutes of thinking a habit worth keeping." },
+    es: { title: "Acerca de", description: "La idea detrás de mathe: convertir unos minutos de reflexión en un hábito que merece la pena." },
+    fr: { title: "À propos", description: "L'idée derrière mathe — faire de quelques minutes de réflexion une habitude qui vaut la peine." },
+    de: { title: "Über uns", description: "Die Idee hinter mathe — aus ein paar Minuten Nachdenken eine Gewohnheit machen, die sich lohnt." },
   },
   privacy: {
     en: { title: "Privacy Policy", description: "How mathe collects, uses and protects your data." },

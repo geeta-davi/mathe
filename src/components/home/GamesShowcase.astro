@@ -1,0 +1,63 @@
+---
+/**
+ * The game catalog.
+ *
+ * Replaces `TrickShowcase`, which listed mental-math shortcuts ("Multiply by
+ * 11", "Cube roots") from the removed arithmetic build. What ships today is two
+ * logic puzzles, each with its own ladder.
+ */
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import PhoneMock from "../mock/PhoneMock.astro";
+import ZipScreen from "../mock/ZipScreen.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const games = [
+  { name: "game.zip.name", tag: "game.zip.tag", desc: "game.zip.desc", c: "#F43F5E", glyph: "⌐", soon: false },
+  { name: "game.catseek.name", tag: "game.catseek.tag", desc: "game.catseek.desc", c: "#F59E0B", glyph: "🐱", soon: false },
+  { name: "game.soon.name", tag: "game.soon.tag", desc: "game.soon.desc", c: "#B9AAA1", glyph: "▢", soon: true },
+] as const;
+---
+
+<section class="shell py-20 md:py-28">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="font-display text-4xl font-extrabold text-ink sm:text-5xl">{t("games.title")}</h2>
+    <p class="mt-4 text-lg text-muted">{t("games.subtitle")}</p>
+  </div>
+
+  <div class="mt-14 grid items-center gap-12 lg:grid-cols-2">
+    <div class="order-2 lg:order-1">
+      <PhoneMock>
+        <ZipScreen />
+      </PhoneMock>
+    </div>
+
+    <ul class="order-1 grid gap-4 lg:order-2">
+      {
+        games.map((g) => (
+          <li
+            class:list={[
+              "flex gap-4 rounded-3xl bg-white p-5 ring-1 ring-ink/5",
+              g.soon ? "opacity-70" : "",
+            ]}
+          >
+            <span
+              class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl text-xl leading-none"
+              style={`background:${g.c}1a;color:${g.c};`}
+            >
+              {g.glyph}
+            </span>
+            <span class="min-w-0">
+              <span class="flex flex-wrap items-baseline gap-x-2">
+                <span class="font-display text-lg font-bold text-ink">{t(g.name)}</span>
+                <span class="text-[11px] font-semibold uppercase tracking-wide text-muted-2">{t(g.tag)}</span>
+              </span>
+              <span class="mt-1 block text-[15px] leading-relaxed text-muted">{t(g.desc)}</span>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
