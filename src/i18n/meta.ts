@@ -10,7 +10,8 @@ export type PageKey =
   | "about"
   | "privacy"
   | "terms"
-  | "cookies";
+  | "cookies"
+  | "delete-account";
 
 type Meta = { title: string; description: string };
 
@@ -122,5 +123,11 @@ export const pageMeta: Record<PageKey, Record<Lang, Meta>> = {
     es: { title: "Política de cookies", description: "Cómo mathe usa cookies y tecnologías similares." },
     fr: { title: "Politique relative aux cookies", description: "Comment mathe utilise les cookies et technologies similaires." },
     de: { title: "Cookie-Richtlinie", description: "Wie mathe Cookies und ähnliche Technologien einsetzt." },
+  },
+  "delete-account": {
+    en: { title: "Delete your account and data", description: "How to request deletion of your mathe account and the data linked to it." },
+    es: { title: "Elimina tu cuenta y tus datos", description: "Cómo solicitar la eliminación de tu cuenta de mathe y de los datos asociados." },
+    fr: { title: "Supprimer ton compte et tes données", description: "Comment demander la suppression de ton compte mathe et des données associées." },
+    de: { title: "Konto und Daten löschen", description: "So beantragst du die Löschung deines mathe-Kontos und der damit verknüpften Daten." },
   },
 };
