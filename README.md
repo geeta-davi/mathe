@@ -1,7 +1,9 @@
 # mathe.games — marketing site
 
-Fast, SEO-first, multilingual marketing site for **mathe** — a gamified mental-math
-duels app by SarkariBuddy. Built with **Astro** (static output) + **Tailwind CSS v4**.
+Fast, SEO-first, multilingual marketing site for **mathe** — a daily mind-games app
+(Zip and CatSeek). Built with **Astro** (static output) + **Tailwind CSS v4**.
+
+> Agents: start at [CLAUDE.md](CLAUDE.md), not here.
 
 ## Stack
 

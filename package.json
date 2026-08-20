@@ -1,7 +1,7 @@
 {
   "name": "mathe-web",
   "version": "1.0.0",
-  "description": "Marketing website for mathe — gamified mental-math duels (mathe.games)",
+  "description": "Marketing website for mathe — daily mind games (mathe.games)",
   "type": "module",
   "private": true,
   "scripts": {
